@@ -1,0 +1,203 @@
+~ intro
+……..
+………………..
+???: …H…?.. Mi.. w… up….?
+……..?
+???: It’s….. ng… la..
+………….?
+
+You can hear someone talking to you but you can’t make out their voice. You’re not sure what they’re saying either.
+
+???: H… co.. n……
+
+As the voice continues, you start to smell something familiar…
+It smells like food.
+Good food.
+You’re so, so hungry.
+
+You…
+- Bite it
+- Bite it
+- Bite it
+
+#[CG insert]
+???: [font_size=50][shake rate=20.0 level=5 connected=1]AH!![/shake][/font_size]
+???: [font_size=30][shake rate=20.0 level=5 connected=1]What the hell did you do that for?![/shake][/font_size]
+Mitch: Eh… Kak Michelle?!
+
+#[computer lab bg and music start]
+do bg_show_path("res://assets/bgs/computer_lab.jpg")
+do music_start()
+Michelle: Yeah, it’s me. Jeez kid, that hurt…
+Mitch: I’m so sorry! I was half-awake and I thought…
+
+Your stomach growls loudly.
+
+Mitch: ……… [#embarassed]
+Michelle: Well, that explains things.
+Mitch: ……… [#embarassed]
+Michelle: Hey, no need to get shy. You’re pretty late for lunch so it makes sense.
+Mitch: It’s lunch time already?
+Michelle: Yeah, almost an hour past lunch time, actually. You slept through the entire session today and more…
+Michelle: The other students and teacher assistants have already gotten lunch and gone to their next class.
+Mitch: Ah?! My next class–!
+Michelle: Woah, calm down. Your next class is Cryptography, right?
+Mitch: Yeah, it is. What about it?
+Michelle: My friend’s taking that class too and she said the professor’s sick today. There’s no class but there’s a task due tomorrow as replacement.
+Michelle: That’s why I didn’t immediately wake you up once today’s assistance session ended… you looked like you needed the rest, too.
+Mitch: Oh…
+
+#[SPIN WHEEL]
+#You’re always looking out for me… [+20]
+#Mitch: You’re always looking out for me… I really owe you one, kak.
+#Mitch: I owe you a lot, actually.
+#Michelle: Hey, it’s no big deal! Always glad to help you out, Mitch.
+#
+#How about your own classes, kak? [-10]
+#Mitch: How about your own classes, kak? You didn’t skip any, right?
+#Michelle: Of course not! All I have for today was this assistance session and some student projects I need to help grade, but those can wait ‘till later.
+#Michelle: Rest assured I’m not slacking off just to babysit you, Mitch.
+#She’s not being particularly mean, but you feel as though you’ve said the wrong thing… 
+#
+#Thank you, kak. [+10]
+#Mitch: Thank you, kak. I mean it.
+#Michelle: Aw, it’s no problem, Mitch.
+
+Michelle: Anyways, I’m getting kind of hungry too… I think I’m gonna go get lunch at the cafeteria.
+Mitch: Oh, okay!
+
+Michelle walks to the door of the lab but stops. She pauses for a minute before turning back to look at you.
+
+Michelle: …..
+Mitch: …….?
+Michelle: So, are you just gonna stand there or are you gonna join me?
+Mitch: Oh!!
+Mitch: Yes, of course! Let me get my things and I’ll be right with you!
+do bg_hide()
+=> lunch
+
+~ lunch
+do bg_show_path("res://assets/bgs/wonderful.png")
+#[Cafeteria CG, crowd SFX, and bgm starts]
+
+You and Michelle make your way to the cafeteria to eat. A lot of students are milling about, some getting their food and others discussing classes and homework.
+
+Michelle walks ahead and rushes to an empty table to claim it before someone else does.
+
+Michelle: Mitch, over here!
+
+You squeeze your way past a few groups to catch up to her.
+
+Michelle: What do you want to eat? I can go get our food while you stay here and guard our stuff.
+- Geprek Chicken
+	Michelle: Something spicy on an empty stomach? Are you sure about that?
+	Mitch: I can handle it!
+	Michelle: Well, if you say so.
+- Fried Rice
+	Michelle: Oh, that’s what I was gonna get too!
+	Michelle: Alright, be right back.
+- Instant Noodles
+	Michelle: Yeesh, that’s not good for you y’know. That’s not all you’ve been eating, right?
+	Mitch: Er… No…?
+	Michelle: … [#squint]
+	Michelle: You should really take better care of yourself, kid.
+
+As Michelle stands up, she fishes her wallet out of her shoulder bag before handing the bag to you. She makes her way to the stalls and disappears among the crowd soon after.
+
+On reflex, you sling her bag around yourself and hold it in your lap to be extra sure of its safety.
+
+Mitch: Hmm…
+
+This isn’t the first time you’ve gotten lunch with Michelle. In fact, you’ve probably gotten lunch with her at least once every week for the past semester or so.
+
+She’s two years older than you but only one year above in classes. You first met her when she was assigned as your teacher’s assistant for the Interaction Systems course.
+Boy, she really saved your ass back then.
+
+You were pretty bad at the course– flunking the first few quizzes, even –but Michelle took quick notice of this and reached out to you herself. She asked if you needed help and immediately offered to tutor you and a few other struggling students.
+
+She always said she did it to add more hours to her work log, but you don’t quite believe her. Who the hell puts in that much effort just for minimum wage pay?
+
+After those tutoring sessions, you did well enough in the course that you didn’t have to retake it again. God, you really owe her.
+
+Ever since then, you’ve met her in a couple other classes both as a classmate and as a TA. You’ve even been groupmates with her once.
+
+You think she might consider you a friend. You’re not entirely sure, though.
+
+Michelle: Earth to Mitch? Hello? Where’d you go there, buddy?
+Mitch: Uh… huh?
+
+You snap out of your thoughts to find Michelle standing in front of you holding two plates of food. She sets both down on the table and takes a seat across from you, holding out a hand to wordlessly ask for her bag back.
+
+You take the shoulder bag off of you and hand it back to her.
+
+Michelle: Mind telling me what you were daydreaming about while I was gone?
+Mitch: Um…
+
+#[SPIN WHEEL]
+#Nothing… [+0]
+#Mitch: It’s nothing, don’t worry about it.
+#Michelle: Hm, private information huh? Okay, okay, I won’t pry.
+#
+#You. [+10]
+#Mitch: You.
+#Michelle: …?
+#Mitch: Ah– I’m joking! I’m joking!
+#Michelle: Oh. Hahah, good one buddy!
+
+- Are we friends?
+	=>< are_we_friends
+
+Michelle: Well, if we wait any longer the food might get cold. Let’s dig in!
+
+do bg_hide()
+The two of you eat your food together, chatting a small bit about classes in between bites. The portions here are massive, but you finish yours pretty quickly and Michelle catches up eventually.
+do bg_show()
+
+Michelle: Ah, I almost couldn’t finish it… I keep forgetting how much food they serve here.
+Michelle: I don’t think I can eat another bite for the rest of the day.
+Mitch: Same here… I’m–
+
+Your stomach growls loudly.
+
+Mitch: …
+
+Michelle raises one eyebrow at you as she rests her head on her hands.
+
+Michelle: You were saying?
+Mitch: …
+Mitch: Don’t be mean…
+Michelle: Hey, hey, I’m not! But I do think it’s fascinating that you’re still hungry after all that.
+Michelle: …come to think of it, aren’t you always hungry after our lunches? Not to sound rude, but have you ever gotten that checked?
+
+You sigh and think back to the many appointments you’ve had with Dr. Sammy.
+
+Mitch: I have… I’ve tried basically everything with my doctor but nothing’s been working.
+Mitch: He emailed me last week about some new medicine that might help, though. I should probably follow up on that.
+Michelle: You should! Do you go to the campus clinic for that? If you wanna go right now, I can drive you there.
+Mitch: Ah, yeah…! Would that really be okay? I wouldn’t want to trouble you.
+Michelle: No trouble at all, the campus clinic is on the same route as my home, actually.
+Michelle: Come on, help me get these plates back to the stalls and we can get going.
+=> END
+
+~ are_we_friends
+Mitch: Are we friends?
+Michelle: Huh? What do you mean?
+Mitch: Well, uh… I was thinking about how we’ve been having lunch together pretty regularly lately. I was wondering if you considered me a friend.
+Michelle: Hm…
+Michelle: I don’t know about you, but I thought we’ve been friends for a while now. Did you not consider me a friend?
+Mitch: Ah– I do, I do! I just wasn’t sure if you felt the same way?
+Michelle: …
+Mitch: I didn’t want to assume or be forward…
+Mitch: I’m sorry. That was a stupid question.
+Michelle: Hey, hey, it’s alright.
+
+Michelle reaches out and squeezes your hand for a second before letting go. She smiles kindly at you.
+
+You feel something funny in your stomach.
+
+Michelle: I’m not mad, okay? I was just confused. Yes, I consider you a friend.
+Michelle: Is that enough reassurance for you, kid? 
+#[+20]
+
+You nod back at her and smile– the funny feeling subsides. You’re not sure what possessed you to be so direct like that, but you’re glad you told her about it.
+=> END
