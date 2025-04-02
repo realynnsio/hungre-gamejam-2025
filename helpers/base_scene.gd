@@ -33,6 +33,7 @@ func spawn_wheel(purple_text, green_text, yellow_text):
 	wheel_instance.green_text = green_text
 	wheel_instance.yellow_text = yellow_text
 	self.add_child(wheel_instance)
+	wheel_instance.enter_anim()
 	await wheel_instance.tree_exited  # Wait until the wheel instance is removed
 
 # BG Methods

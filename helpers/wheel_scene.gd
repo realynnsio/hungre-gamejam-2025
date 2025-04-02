@@ -13,12 +13,18 @@ extends Node2D
 @onready var green_label: RichTextLabel = %GreenLabel
 @onready var yellow_label: RichTextLabel = %YellowLabel
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func enter_anim():
+	animation_player.play("enter")
+	await animation_player.animation_finished
+	start_spin()
+	
+func start_spin():
 	audio_player.play()
 	animation_player.speed_scale = State.speed
 	animation_player.play("spin")
+	
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
 	purple_label.text = "[center]" + purple_text + "[/center]"
 	green_label.text = "[center]" + green_text + "[/center]"
 	yellow_label.text = "[center]" + yellow_text + "[/center]"
