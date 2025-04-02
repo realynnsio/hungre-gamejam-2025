@@ -1,0 +1,477 @@
+[gd_scene load_steps=20 format=3 uid="uid://3e8md10e8nk8"]
+
+[ext_resource type="Texture2D" uid="uid://hahcv00yhvpv" path="res://assets/wheel/brain.png" id="1_gqvpo"]
+[ext_resource type="Script" path="res://helpers/wheel_scene.gd" id="1_xeik5"]
+[ext_resource type="Texture2D" uid="uid://dp8ixqlmhsul8" path="res://assets/wheel/wheel_base.png" id="2_wbqe4"]
+[ext_resource type="Texture2D" uid="uid://d3wa7s232cqy" path="res://assets/wheel/wheel.png" id="3_xu386"]
+[ext_resource type="Texture2D" uid="uid://ssdqgs3nudha" path="res://assets/wheel/center.png" id="4_auk2v"]
+[ext_resource type="Texture2D" uid="uid://bsktejgssy5gu" path="res://assets/wheel/needle.png" id="5_50plp"]
+[ext_resource type="FontFile" uid="uid://wfxyqn3j12v7" path="res://assets/fonts/CT Galbite-Regular.ttf" id="6_wnpfw"]
+[ext_resource type="AudioStream" uid="uid://bqthd6q8afxid" path="res://assets/sounds/wheel_spin.wav" id="8_ufwqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s1c5"]
+radius = 2.23607
+
+[sub_resource type="Theme" id="Theme_ytflc"]
+default_font = ExtResource("6_wnpfw")
+default_font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uoxt6"]
+bg_color = Color(0.341176, 0.211765, 0.65098, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.0941176, 0, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okthg"]
+bg_color = Color(0.207843, 0.756863, 0.654902, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.0941176, 0, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dae0s"]
+bg_color = Color(1, 0.67451, 0.176471, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.0941176, 0, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_ph8qu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WheelBase/Wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NeedleSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(346, 57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:bg_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.341176, 0.211765, 0.65098, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:border_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:bg_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.207843, 0.756863, 0.654902, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:border_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:bg_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.67451, 0.176471, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:border_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4h70w"]
+resource_name = "spin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WheelBase/Wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NeedleSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(346, 57), Vector2(346, 74), Vector2(346, 57), Vector2(346, 74), Vector2(346, 57)]
+}
+
+[sub_resource type="Animation" id="Animation_u7ii0"]
+resource_name = "purple_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.38),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.341176, 0.211765, 0.65098, 1), Color(0.473682, 0.34078, 0.843231, 1), Color(0.341176, 0.211765, 0.65098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.38),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.221817, 0.000193582, 0.673129, 1), Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pr4gp"]
+resource_name = "green_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.207843, 0.756863, 0.654902, 1), Color(0.562316, 0.984063, 0.887036, 1), Color(0.207843, 0.756863, 0.654902, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gqmsm"]
+resource_name = "yellow_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.67451, 0.176471, 1), Color(1, 0.86682, 0.708692, 1), Color(1, 0.67451, 0.176471, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60faq"]
+_data = {
+"RESET": SubResource("Animation_ph8qu"),
+"green_select": SubResource("Animation_pr4gp"),
+"purple_select": SubResource("Animation_u7ii0"),
+"spin": SubResource("Animation_4h70w"),
+"yellow_select": SubResource("Animation_gqmsm")
+}
+
+[node name="WheelScene" type="Node2D"]
+z_index = 3
+script = ExtResource("1_xeik5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.686275)
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+color = Color(0.0317137, 1.178e-05, 0.171862, 1)
+
+[node name="Brain" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 350.0
+offset_right = 230.0
+offset_bottom = 443.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("1_gqvpo")
+
+[node name="WheelBase" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(346, 296)
+scale = Vector2(4, 4)
+texture = ExtResource("2_wbqe4")
+
+[node name="Wheel" type="Sprite2D" parent="WheelBase"]
+texture = ExtResource("3_xu386")
+
+[node name="Purple" type="Area2D" parent="WheelBase/Wheel"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WheelBase/Wheel/Purple"]
+polygon = PackedVector2Array(-30, -52, -0.25, 0.25, -61.5, 0.5, -53.25, 30.75, -2.25, 1.5, 0.25, 4.25, -0.25, 61.25, 30.25, 52.25, 1.75, 3, 3.5, -0.25, 61, 0.5, 52.5, -30.5, 4.25, -2.25, 0, -3.25, 0, -61)
+
+[node name="Green" type="Area2D" parent="WheelBase/Wheel"]
+visible = false
+rotation = -1.0472
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WheelBase/Wheel/Green"]
+polygon = PackedVector2Array(-30, -52, -0.25, 0.25, -61.5, 0.5, -53.25, 30.75, -2.25, 1.5, 0.25, 4.25, -0.25, 61.25, 30.25, 52.25, 1.75, 3, 3.5, -0.25, 61, 0.5, 52.5, -30.5, 4.25, -2.25, 0, -3.25, 0, -61)
+
+[node name="Yellow" type="Area2D" parent="WheelBase/Wheel"]
+visible = false
+rotation = -2.0944
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WheelBase/Wheel/Yellow"]
+polygon = PackedVector2Array(-30, -52, -0.25, 0.25, -61.5, 0.5, -53.25, 30.75, -2.25, 1.5, 0.25, 4.25, -0.25, 61.25, 30.25, 52.25, 1.75, 3, 3.5, -0.25, 61, 0.5, 52.5, -30.5, 4.25, -2.25, 0, -3.25, 0, -61)
+
+[node name="Center" type="Sprite2D" parent="WheelBase"]
+texture = ExtResource("4_auk2v")
+
+[node name="NeedleSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(346, 57)
+scale = Vector2(4, 4)
+texture = ExtResource("5_50plp")
+
+[node name="Needle" type="Area2D" parent="NeedleSprite"]
+position = Vector2(-86.5, -14.25)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NeedleSprite/Needle"]
+position = Vector2(346, 91)
+shape = SubResource("CircleShape2D_3s1c5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 43.0
+offset_right = 41.0
+offset_bottom = 83.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 690.0
+offset_right = 1240.0
+offset_bottom = 590.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Purple Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer"]
+z_index = 5
+texture_filter = 1
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+theme = SubResource("Theme_ytflc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_uoxt6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/Purple Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="PurpleLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Purple Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Hello Everyone[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Green Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer"]
+z_index = 5
+texture_filter = 1
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+theme = SubResource("Theme_ytflc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_okthg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/Green Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="GreenLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Green Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Hello Everyone[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Yellow Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer"]
+z_index = 5
+texture_filter = 1
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+theme = SubResource("Theme_ytflc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dae0s")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/Yellow Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="YellowLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Yellow Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Hello Everyone[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60faq")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ufwqp")

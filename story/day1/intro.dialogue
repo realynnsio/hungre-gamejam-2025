@@ -47,21 +47,19 @@ Michelle: My friend’s taking that class too and she said the professor’s sic
 Michelle: That’s why I didn’t immediately wake you up once today’s assistance session ended… you looked like you needed the rest, too.
 Mitch: Oh…
 
-#[SPIN WHEEL]
-#You’re always looking out for me… [+20]
-#Mitch: You’re always looking out for me… I really owe you one, kak.
-#Mitch: I owe you a lot, actually.
-#Michelle: Hey, it’s no big deal! Always glad to help you out, Mitch.
-#
-#How about your own classes, kak? [-10]
-#Mitch: How about your own classes, kak? You didn’t skip any, right?
-#Michelle: Of course not! All I have for today was this assistance session and some student projects I need to help grade, but those can wait ‘till later.
-#Michelle: Rest assured I’m not slacking off just to babysit you, Mitch.
-#She’s not being particularly mean, but you feel as though you’ve said the wrong thing… 
-#
-#Thank you, kak. [+10]
-#Mitch: Thank you, kak. I mean it.
-#Michelle: Aw, it’s no problem, Mitch.
+do spawn_wheel("You're always looking out for me...", "How about your own classes, kak?", "Thank you, kak.")
+if State.choice == "purple":
+	Mitch: You’re always looking out for me… I really owe you one, kak.
+	Mitch: I owe you a lot, actually.
+	Michelle: Hey, it’s no big deal! Always glad to help you out, Mitch.
+elif State.choice == "green":
+	Mitch: How about your own classes, kak? You didn’t skip any, right?
+	Michelle: Of course not! All I have for today was this assistance session and some student projects I need to help grade, but those can wait ‘till later.
+	Michelle: Rest assured I’m not slacking off just to babysit you, Mitch.
+	She’s not being particularly mean, but you feel as though you’ve said the wrong thing… 
+elif State.choice == "yellow":
+	Mitch: Thank you, kak. I mean it.
+	Michelle: Aw, it’s no problem, Mitch.
 
 Michelle: Anyways, I’m getting kind of hungry too… I think I’m gonna go get lunch at the cafeteria.
 Mitch: Oh, okay!
@@ -133,18 +131,16 @@ You take the shoulder bag off of you and hand it back to her.
 Michelle: Mind telling me what you were daydreaming about while I was gone?
 Mitch: Um…
 
-#[SPIN WHEEL]
-#Nothing… [+0]
-#Mitch: It’s nothing, don’t worry about it.
-#Michelle: Hm, private information huh? Okay, okay, I won’t pry.
-#
-#You. [+10]
-#Mitch: You.
-#Michelle: …?
-#Mitch: Ah– I’m joking! I’m joking!
-#Michelle: Oh. Hahah, good one buddy!
-
-- Are we friends?
+do spawn_wheel("Nothing...", "You.", "Are we friends?")
+if State.choice == "purple":
+	Mitch: It’s nothing, don’t worry about it.
+	Michelle: Hm, private information huh? Okay, okay, I won’t pry.
+elif State.choice == "green":
+	Mitch: You.
+	Michelle: …?
+	Mitch: Ah– I’m joking! I’m joking!
+	Michelle: Oh. Hahah, good one buddy!
+elif State.choice == "yellow":
 	=>< are_we_friends
 
 Michelle: Well, if we wait any longer the food might get cold. Let’s dig in!
@@ -177,6 +173,7 @@ Michelle: You should! Do you go to the campus clinic for that? If you wanna go r
 Mitch: Ah, yeah…! Would that really be okay? I wouldn’t want to trouble you.
 Michelle: No trouble at all, the campus clinic is on the same route as my home, actually.
 Michelle: Come on, help me get these plates back to the stalls and we can get going.
+do bg_hide()
 => END
 
 ~ are_we_friends
@@ -197,7 +194,6 @@ You feel something funny in your stomach.
 
 Michelle: I’m not mad, okay? I was just confused. Yes, I consider you a friend.
 Michelle: Is that enough reassurance for you, kid? 
-#[+20]
 
 You nod back at her and smile– the funny feeling subsides. You’re not sure what possessed you to be so direct like that, but you’re glad you told her about it.
 => END

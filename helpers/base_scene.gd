@@ -7,6 +7,7 @@ extends Node2D
 @onready var music_player = $MusicPlayer
 @export var next_scene_path = ""
 @onready var sfx_player = $SFXPlayer
+var spinning_wheel_scene = preload("res://helpers/wheel_scene.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,16 @@ func _on_dialogue_ended(_args=[]) :
 		get_tree().change_scene_to_file(next_scene_path)
 	else:
 		queue_free()
+
+# Wheel Functionality
+func spawn_wheel(purple_text, green_text, yellow_text):
+	await get_tree().create_timer(0.1).timeout
+	var wheel_instance = spinning_wheel_scene.instantiate()  # Create an instance of the spinning wheel
+	wheel_instance.purple_text = purple_text
+	wheel_instance.green_text = green_text
+	wheel_instance.yellow_text = yellow_text
+	self.add_child(wheel_instance)
+	await wheel_instance.tree_exited  # Wait until the wheel instance is removed
 
 # BG Methods
 func bg_change(bg_path):

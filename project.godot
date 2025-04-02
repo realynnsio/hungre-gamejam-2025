@@ -13,11 +13,13 @@ config_version=5
 config/name="Hungre GameJam 2025"
 run/main_scene="res://scenes/day1/intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+State="*res://globals/state.gd"
 
 [dialogue_manager]
 
