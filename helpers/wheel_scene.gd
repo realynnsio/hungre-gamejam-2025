@@ -48,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if valid:
 		animation_player.pause()
 		audio_player.stop()
-		audio_player.stream = load("res://assets/sounds/spin_complete.wav")
+		audio_player.stream = load("res://assets/sounds/spin_complete_soft.wav")
 		audio_player.play()
 		
 		await get_tree().process_frame
