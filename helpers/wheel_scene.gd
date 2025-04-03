@@ -58,13 +58,15 @@ func _unhandled_input(event: InputEvent) -> void:
 				if area.name == "Purple":
 					State.choice = "purple"
 					animation_player.play("purple_select")
-					await animation_player.animation_finished
 				elif area.name == "Green":
 					State.choice = "green"
 					animation_player.play("green_select")
 				else:
 					State.choice = "yellow"
 					animation_player.play("yellow_select")
-				
-		await get_tree().create_timer(1.0).timeout
+		
+		await animation_player.animation_finished
+		animation_player.play_backwards("enter")
+		await animation_player.animation_finished
+		#await get_tree().create_timer(1.0).timeout
 		queue_free()
