@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnbn8i3m5mfs8"]
+[gd_scene load_steps=7 format=3 uid="uid://cnbn8i3m5mfs8"]
 
 [ext_resource type="Script" path="res://helpers/base_scene.gd" id="1_qsse5"]
 [ext_resource type="AudioStream" uid="uid://chhpwm1c2qubd" path="res://assets/music/alma_bgm_loop2.wav" id="3_5a8v6"]
@@ -46,10 +46,14 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_0wysk"]
+resource_name = "vignette_in"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2osip"]
 _data = {
 "RESET": SubResource("Animation_rawok"),
-"bg_show": SubResource("Animation_1g1tt")
+"bg_show": SubResource("Animation_1g1tt"),
+"vignette_in": SubResource("Animation_0wysk")
 }
 
 [node name="Intro" type="Node2D"]

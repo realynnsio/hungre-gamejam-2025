@@ -46,6 +46,7 @@ border_color = Color(0.901372, 0.663217, 1.92523e-06, 1)
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font_size = 20
+Button/colors/font_focus_color = Color(1, 0.847059, 0.45098, 1)
 Button/colors/font_hover_color = Color(0.999999, 0.848153, 0.451963, 1)
 Button/constants/h_separation = 10
 Button/font_sizes/font_size = 25

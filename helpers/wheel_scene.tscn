@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3e8md10e8nk8"]
+[gd_scene load_steps=23 format=3 uid="uid://3e8md10e8nk8"]
 
 [ext_resource type="Texture2D" uid="uid://hahcv00yhvpv" path="res://assets/wheel/brain.png" id="1_gqvpo"]
 [ext_resource type="Script" path="res://helpers/wheel_scene.gd" id="1_xeik5"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ssdqgs3nudha" path="res://assets/wheel/center.png" id="4_auk2v"]
 [ext_resource type="Texture2D" uid="uid://bsktejgssy5gu" path="res://assets/wheel/needle.png" id="5_50plp"]
 [ext_resource type="FontFile" uid="uid://wfxyqn3j12v7" path="res://assets/fonts/CT Galbite-Regular.ttf" id="6_wnpfw"]
-[ext_resource type="AudioStream" uid="uid://bqthd6q8afxid" path="res://assets/sounds/wheel_spin.wav" id="8_ufwqp"]
+[ext_resource type="AudioStream" uid="uid://qmyma6l1ydvs" path="res://assets/sounds/heartbeat_fast.wav" id="8_qfmbc"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="9_ac1bw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s1c5"]
 radius = 2.23607
@@ -246,118 +247,17 @@ tracks/15/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_4h70w"]
-resource_name = "spin"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WheelBase/Wheel:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Vignette:material:shader_parameter/alpha")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("NeedleSprite:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(346, 57), Vector2(346, 74), Vector2(346, 57), Vector2(346, 74), Vector2(346, 57)]
-}
-
-[sub_resource type="Animation" id="Animation_u7ii0"]
-resource_name = "purple_select"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.38),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.341176, 0.211765, 0.65098, 1), Color(0.473682, 0.34078, 0.843231, 1), Color(0.341176, 0.211765, 0.65098, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:border_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.19, 0.38),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.221817, 0.000193582, 0.673129, 1), Color(0.0941176, 0, 0.337255, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pr4gp"]
-resource_name = "green_select"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.207843, 0.756863, 0.654902, 1), Color(0.562316, 0.984063, 0.887036, 1), Color(0.207843, 0.756863, 0.654902, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:border_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_gqmsm"]
-resource_name = "yellow_select"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 0.67451, 0.176471, 1), Color(1, 0.86682, 0.708692, 1), Color(1, 0.67451, 0.176471, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:border_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
+"values": [0.3]
 }
 
 [sub_resource type="Animation" id="Animation_wnnjp"]
@@ -415,7 +315,7 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("NeedleSprite:position")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0.14, 0.52, 0.63),
@@ -427,7 +327,7 @@ tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("NeedleSprite:modulate")
-tracks/5/interp = 1
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0.12, 0.44),
@@ -439,7 +339,7 @@ tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/path = NodePath("Control:position")
-tracks/6/interp = 1
+tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0.1, 0.42, 0.55),
@@ -451,13 +351,138 @@ tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/path = NodePath("Control:modulate")
-tracks/7/interp = 1
+tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0.17, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Vignette:material:shader_parameter/alpha")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.3]
+}
+
+[sub_resource type="Animation" id="Animation_pr4gp"]
+resource_name = "green_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.207843, 0.756863, 0.654902, 1), Color(0.562316, 0.984063, 0.887036, 1), Color(0.207843, 0.756863, 0.654902, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Green Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u7ii0"]
+resource_name = "purple_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.38),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.341176, 0.211765, 0.65098, 1), Color(0.473682, 0.34078, 0.843231, 1), Color(0.341176, 0.211765, 0.65098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Purple Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.38),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.221817, 0.000193582, 0.673129, 1), Color(0.0941176, 0, 0.337255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4h70w"]
+resource_name = "spin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WheelBase/Wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NeedleSprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(346, 57), Vector2(346, 74), Vector2(346, 57), Vector2(346, 74), Vector2(346, 57)]
+}
+
+[sub_resource type="Animation" id="Animation_gqmsm"]
+resource_name = "yellow_select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.67451, 0.176471, 1), Color(1, 0.86682, 0.708692, 1), Color(1, 0.67451, 0.176471, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/VBoxContainer/Yellow Panel:theme_override_styles/panel:border_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0, 0.337255, 1), Color(0.223529, 0, 0.67451, 1), Color(0.0941176, 0, 0.337255, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60faq"]
@@ -470,12 +495,18 @@ _data = {
 "yellow_select": SubResource("Animation_gqmsm")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brku5"]
+shader = ExtResource("9_ac1bw")
+shader_parameter/alpha = 0.3
+shader_parameter/inner_radius = 0.6
+shader_parameter/outer_radius = 0.9
+
 [node name="WheelScene" type="Node2D"]
 z_index = 3
 script = ExtResource("1_xeik5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0.686275)
+modulate = Color(1, 1, 1, 0.196078)
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 color = Color(0.0317137, 1.178e-05, 0.171862, 1)
@@ -485,9 +516,9 @@ texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 429.0
+offset_top = 350.0
 offset_right = 230.0
-offset_bottom = 522.0
+offset_bottom = 443.0
 grow_vertical = 0
 scale = Vector2(4, 4)
 texture = ExtResource("1_gqvpo")
@@ -542,9 +573,9 @@ shape = SubResource("CircleShape2D_3s1c5")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
-offset_top = 124.0
+offset_top = 43.0
 offset_right = 41.0
-offset_bottom = 164.0
+offset_bottom = 83.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -660,4 +691,12 @@ libraries = {
 autoplay = "enter"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_ufwqp")
+stream = ExtResource("8_qfmbc")
+
+[node name="Vignette" type="ColorRect" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_brku5")
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
