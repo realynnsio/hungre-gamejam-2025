@@ -1,21 +1,21 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 400  # speed in pixels/sec
+@export var speed = 400
+@export var knockback_strength = 200
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var audio_player = $AudioStreamPlayer2D
 var dir: String = ""
+var is_hurt: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and not is_hurt:
 		attack()
 
-# Process attacking mechanism
 func attack():
 	if dir == "right":
 		animation_player.play("attack_right")
@@ -26,12 +26,17 @@ func attack():
 	else:
 		animation_player.play("attack_down")
 
-# Process movement
 func _physics_process(_delta):
-	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
+	# If the player is in the hurt state, continue applying knockback and ignore input.
+	if is_hurt:
+		move_and_slide()
+		return
+
+	# Otherwise, process normal movement input.
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
 	
-	if !(animation_player.current_animation in ["attack_down", "attack_up", "attack_right", "attack_left", "hurt"]):
+	if not (animation_player.current_animation in ["attack_down", "attack_up", "attack_right", "attack_left", "hurt"]):
 		if Input.is_action_pressed("down"):
 			animation_player.play("walk_down")
 			dir = "down"
@@ -47,17 +52,27 @@ func _physics_process(_delta):
 		else:
 			animation_player.stop()
 	
-		move_and_slide()
+	move_and_slide()
 
-# Process hurt hit box etc
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
-	if area.name == "HurtBox" and parent is EnemyBase:
-		parent.take_damage(10)
+	if area.name == "HitBox" and parent is EnemyBase:
+		parent.take_damage(10, self.position)
 
-func take_damage(amount: int) -> void:
+# Updated take_damage function with knockback.
+func take_damage(amount: int, source_position: Vector2) -> void:
+	is_hurt = true
 	animation_player.play("hurt")
+	audio_player.play()
 	State.hungre_health -= amount
+	print(State.hungre_health)
+	
+	var knockback_dir = (position - source_position).normalized()
+	velocity = knockback_dir * knockback_strength
+	
+	await animation_player.animation_finished
+	
 	if State.hungre_health <= 0:
-		await animation_player.animation_finished
-		print("Game Over")
+		queue_free()
+	else:
+		is_hurt = false
