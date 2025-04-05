@@ -68,5 +68,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		await animation_player.animation_finished
 		animation_player.play_backwards("enter")
 		await animation_player.animation_finished
-		#await get_tree().create_timer(1.0).timeout
 		queue_free()

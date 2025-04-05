@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6p0n30avb08k"
-path="res://.godot/imported/hungre_wip.png-48373855eccba0c455a5ef503e2bc51e.ctex"
+uid="uid://cteq22nhwjxc7"
+path="res://.godot/imported/mob_blueberry.png-7155bf62abecc0cb22a84646acdb72d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/hungre_wip.png"
-dest_files=["res://.godot/imported/hungre_wip.png-48373855eccba0c455a5ef503e2bc51e.ctex"]
+source_file="res://assets/sprites/mob_blueberry.png"
+dest_files=["res://.godot/imported/mob_blueberry.png-7155bf62abecc0cb22a84646acdb72d1.ctex"]
 
 [params]
 

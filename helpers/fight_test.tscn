@@ -1,12 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://ysr12j8g0xkh"]
+[gd_scene load_steps=5 format=3 uid="uid://ysr12j8g0xkh"]
 
 [ext_resource type="PackedScene" uid="uid://d1gru6wp24ban" path="res://helpers/hungre.tscn" id="1_n1s50"]
 [ext_resource type="PackedScene" uid="uid://cnnb73umyeujr" path="res://helpers/base_enemy.tscn" id="2_168ad"]
+[ext_resource type="Texture2D" uid="uid://cteq22nhwjxc7" path="res://assets/sprites/mob_blueberry.png" id="2_avynl"]
+[ext_resource type="Texture2D" uid="uid://fy7d8ak5r84f" path="res://assets/sprites/mob_strawberry.png" id="4_xce67"]
 
 [node name="FightTest" type="Node2D"]
 
-[node name="Enemy" parent="." instance=ExtResource("2_168ad")]
-position = Vector2(715, 451)
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(3, 3)
 
-[node name="Hungre" parent="." instance=ExtResource("1_n1s50")]
+[node name="Hungre" parent="Node2D" instance=ExtResource("1_n1s50")]
 position = Vector2(379, 129)
+scale = Vector2(1, 1)
+speed = 600
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/Hungre"]
+
+[node name="Enemy" parent="Node2D" instance=ExtResource("2_168ad")]
+position = Vector2(194.667, 73.3333)
+
+[node name="Enemy2" parent="Node2D" instance=ExtResource("2_168ad")]
+position = Vector2(88.3333, 157)
+spritesheet = ExtResource("2_avynl")
+
+[node name="Enemy3" parent="Node2D" instance=ExtResource("2_168ad")]
+position = Vector2(254.333, 209.667)
+spritesheet = ExtResource("4_xce67")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc6xtl042n1ux"
-path="res://.godot/imported/default.png-81404495cddf5e79ccd0ed13c6192eb4.ctex"
+uid="uid://fy7d8ak5r84f"
+path="res://.godot/imported/mob_strawberry.png-2376fcc39de12d217cfea80345a57417.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/michelle/default.png"
-dest_files=["res://.godot/imported/default.png-81404495cddf5e79ccd0ed13c6192eb4.ctex"]
+source_file="res://assets/sprites/mob_strawberry.png"
+dest_files=["res://.godot/imported/mob_strawberry.png-2376fcc39de12d217cfea80345a57417.ctex"]
 
 [params]
 

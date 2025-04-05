@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc6xtl042n1ux"
-path="res://.godot/imported/default.png-81404495cddf5e79ccd0ed13c6192eb4.ctex"
+uid="uid://djd1rldyjnequ"
+path="res://.godot/imported/hungre.png-f428e1b158e81cc8f5067c34d5a86c15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/michelle/default.png"
-dest_files=["res://.godot/imported/default.png-81404495cddf5e79ccd0ed13c6192eb4.ctex"]
+source_file="res://assets/sprites/hungre.png"
+dest_files=["res://.godot/imported/hungre.png-f428e1b158e81cc8f5067c34d5a86c15.ctex"]
 
 [params]
 
