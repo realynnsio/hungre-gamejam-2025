@@ -53,7 +53,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if area.name == "HurtBox" and parent is Player:
 		parent.take_damage(10, self.position)
-		speed = 0
 
 func _on_detect_radius_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
@@ -66,6 +65,4 @@ func _on_detect_radius_area_exited(area: Area2D) -> void:
 		player = null
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	var parent = area.get_parent()
-	if area.name == "HurtBox" and parent is Player:
-		speed = run_speed
+	pass

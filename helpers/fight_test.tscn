@@ -14,7 +14,6 @@ scale = Vector2(3, 3)
 [node name="Hungre" parent="Node2D" instance=ExtResource("1_n1s50")]
 position = Vector2(506, 106.667)
 scale = Vector2(1, 1)
-speed = 600
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/Hungre"]
 
