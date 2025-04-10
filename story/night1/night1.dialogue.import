@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bjddgjgd48s03"
+path="res://.godot/imported/night1.dialogue-a6b61875227407da4880851c7f17bb4a.tres"
+
+[deps]
+
+source_file="res://story/night1/night1.dialogue"
+dest_files=["res://.godot/imported/night1.dialogue-a6b61875227407da4880851c7f17bb4a.tres"]
+
+[params]
+
+defaults=true

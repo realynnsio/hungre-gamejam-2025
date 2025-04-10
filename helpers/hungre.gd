@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 600
+@export var speed = 800
 @export var knockback_strength = 200
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -64,8 +64,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	is_hurt = true
 	animation_player.play("hurt")
 	audio_player.play()
-	State.hungre_health -= amount
-	print(State.hungre_health)
+	State.hungre_take_damage(amount)
 	
 	var knockback_dir = (position - source_position).normalized()
 	velocity = knockback_dir * knockback_strength
@@ -73,6 +72,6 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	await animation_player.animation_finished
 	
 	if State.hungre_health <= 0:
-		queue_free()
+		get_tree().change_scene_to_packed(State.lose_screen_scene)
 	else:
 		is_hurt = false

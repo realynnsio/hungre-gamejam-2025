@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://tdbda3xblr82"]
+
+[ext_resource type="Script" path="res://helpers/key.gd" id="1_li8y5"]
+[ext_resource type="Texture2D" uid="uid://b6ml1a1eaela1" path="res://assets/sprites/lollipop_float.png" id="2_w0l1q"]
+[ext_resource type="AudioStream" uid="uid://dl8pxi8alf8fw" path="res://assets/sounds/spin_complete_soft.wav" id="3_aw5qj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i7sp"]
+atlas = ExtResource("2_w0l1q")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkvq3"]
+atlas = ExtResource("2_w0l1q")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bai5w"]
+atlas = ExtResource("2_w0l1q")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orbnf"]
+atlas = ExtResource("2_w0l1q")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrexc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i7sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkvq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bai5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orbnf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bln7e"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7mn8"]
+size = Vector2(16, 28)
+
+[node name="Key" type="StaticBody2D"]
+script = ExtResource("1_li8y5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_jrexc")
+autoplay = "default"
+frame = 3
+frame_progress = 0.622995
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bln7e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_o7mn8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aw5qj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

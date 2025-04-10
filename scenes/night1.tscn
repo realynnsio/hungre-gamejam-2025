@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bilo8jq4nu45k"]
+
+[ext_resource type="PackedScene" uid="uid://d1gru6wp24ban" path="res://helpers/hungre.tscn" id="1_hvvgk"]
+[ext_resource type="PackedScene" uid="uid://cu7ysoadiq2tr" path="res://helpers/enemy.tscn" id="2_7s5d6"]
+[ext_resource type="Texture2D" uid="uid://cteq22nhwjxc7" path="res://assets/sprites/mob_blueberry.png" id="3_7afqa"]
+[ext_resource type="Texture2D" uid="uid://fy7d8ak5r84f" path="res://assets/sprites/mob_strawberry.png" id="4_p7gu3"]
+[ext_resource type="PackedScene" uid="uid://cij5fuv3chmkb" path="res://helpers/heart_bar.tscn" id="5_k6y3r"]
+
+[node name="Night1" type="Node2D"]
+
+[node name="Game" type="Node2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Hungre" parent="Game" instance=ExtResource("1_hvvgk")]
+position = Vector2(506, 106.667)
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Game/Hungre"]
+
+[node name="Enemy" parent="Game" instance=ExtResource("2_7s5d6")]
+position = Vector2(416, -4)
+
+[node name="Enemy2" parent="Game" instance=ExtResource("2_7s5d6")]
+position = Vector2(140, 90)
+spritesheet = ExtResource("3_7afqa")
+
+[node name="Enemy3" parent="Game" instance=ExtResource("2_7s5d6")]
+position = Vector2(389.667, 292.333)
+spritesheet = ExtResource("4_p7gu3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("5_k6y3r")]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(16, -4)

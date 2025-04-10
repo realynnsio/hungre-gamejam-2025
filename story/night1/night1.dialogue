@@ -1,0 +1,78 @@
+~ tutorial
+do pause_game()
+………?
+………………..??
+
+???: Oh, looks like you’re finally here!
+
+do bg_show()
+do music_start()
+
+???: Welcome, welcome!
+???: I’m Hungre, your hungriest bestest most closest friend.
+
+……
+
+Hungre: As you can see, I’ve gotten myself into a bit of a pickle…
+Hungre: I was searching for a [color=#e6a900]delicious dessert[/color] that was rumored to be in this maze, but I’ve now gotten myself lost!
+Hungre: Each room in this maze is locked by a [color=#e6a900]"key"[/color] as well.
+Hungre: I heard that getting closer to the key was marked by a [color=#e6a900]darker path[/color]…
+Hungre: Apparently there are [color=#e6a900]scary monsters[/color] roaming around the place too. Eek!
+Hungre: I’ve been so scared I haven’t been able to move, I don’t think I can do this on my own…
+Hungre: Will you help me?
+
+….
+
+Hungre: ….
+
+….
+
+Hungre: Perfect! Thank you so much!
+Hungre: I hope we’ll be able to reach that [color=#e6a900]delicious dessert[/color] together!
+
+Use [color=#e6a900]ARROW KEYS[/color] or [color=#e6a900]W, A, S, D[/color] to move, press [color=#e6a900]SPACE[/color] or [color=#e6a900]LEFT CLICK[/color] to attack.
+set State.finished_intro = true
+do resume_game()
+=> END
+
+~ no_key
+if State.has_key == false:
+	You still haven’t acquired the key to unlock this door.
+=> END
+
+~ find_dessert
+Hungre: [font_size=50]Oh my![/font_size] It’s the [color=#e6a900]delicious dessert[/color]!!!
+Hungre: Come on, let’s eat it!
+=> END
+
+~ eat_dessert
+set State.has_cat = false
+Hungre: [font_size=50][shake rate=20.0 level=5 connected=1]Yummyyyyy!![/shake][/font_size]
+Hungre: Oh, that was so good… Truly a dessert made with love.
+Hungre: Thank you so, so much.
+Hungre: Now, let’s finally exit this darned maze!
+=> END
+
+~ exit_level
+if State.has_cat == true:
+	match State.skip_cat
+		when 0
+			Hungre: Eh, what are you doing?
+			Hungre: The dessert is right there, we should eat it!
+			do State.skip_cat += 1
+		when 1
+			Hungre: Come on, don’t be shy!
+			Hungre: This one won’t fight back.
+			do State.skip_cat += 1
+		when 2
+			Hungre: Hurry up.
+			Hungre: Eat it.
+			do State.skip_cat += 1
+		else
+			do music_stop()
+			Hungre:
+			set State.hungre_mad = true
+
+if State.has_cat == false or State.hungre_mad == true:
+	do move_scene()
+=> END

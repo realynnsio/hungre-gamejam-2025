@@ -1,36 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://06ggmnpru6x8"]
+[gd_scene load_steps=7 format=3 uid="uid://06ggmnpru6x8"]
 
 [ext_resource type="Script" path="res://helpers/base_scene.gd" id="1_sf2nm"]
 [ext_resource type="AudioStream" uid="uid://chhpwm1c2qubd" path="res://assets/music/alma_bgm_loop2.wav" id="2_ulrrb"]
+[ext_resource type="PackedScene" uid="uid://duvrym5qurso7" path="res://helpers/ui/day_indicator.tscn" id="3_n2b7r"]
 
-[sub_resource type="Animation" id="Animation_rawok"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/BG:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MusicPlayer:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-15.0]
-}
-
-[sub_resource type="Animation" id="Animation_1g1tt"]
+[sub_resource type="Animation" id="Animation_qligi"]
 resource_name = "bg_show"
 length = 2.0
 tracks/0/type = "value"
@@ -46,16 +20,32 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2osip"]
+[sub_resource type="Animation" id="Animation_ks78e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ywa1"]
 _data = {
-"RESET": SubResource("Animation_rawok"),
-"bg_show": SubResource("Animation_1g1tt")
+"RESET": SubResource("Animation_ks78e"),
+"bg_show": SubResource("Animation_qligi")
 }
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_sf2nm")
 
 [node name="Black" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -64,6 +54,11 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ywa1")
+}
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true
@@ -84,14 +79,19 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_2osip")
-}
-
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ulrrb")
 volume_db = -15.0
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 274.0
+offset_bottom = 74.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="DayIndicator" parent="CanvasLayer/MarginContainer" instance=ExtResource("3_n2b7r")]
+layout_mode = 2

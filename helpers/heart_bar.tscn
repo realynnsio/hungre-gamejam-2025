@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cij5fuv3chmkb"]
+
+[ext_resource type="Script" path="res://helpers/heart_bar.gd" id="1_dxq2u"]
+[ext_resource type="Texture2D" uid="uid://btt2pml6603ox" path="res://assets/sprites/heart_full.png" id="1_sfami"]
+[ext_resource type="Texture2D" uid="uid://b7h22qet55sqm" path="res://assets/sprites/heart_transparent.png" id="2_vt7dg"]
+
+[node name="HeartBar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+script = ExtResource("1_dxq2u")
+
+[node name="Padding" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+texture = ExtResource("2_vt7dg")
+stretch_mode = 2
+
+[node name="1" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_sfami")
+stretch_mode = 2
+
+[node name="2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_sfami")
+stretch_mode = 2
+
+[node name="3" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_sfami")
+stretch_mode = 2

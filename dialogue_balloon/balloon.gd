@@ -64,11 +64,9 @@ func _ready() -> void:
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
 
-
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	get_viewport().set_input_as_handled()
-
 
 func _notification(what: int) -> void:
 	## Detect a change of locale and update the current dialogue line to show the new language
@@ -183,7 +181,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if not is_waiting_for_input: return
 	if dialogue_line.responses.size() > 0: return
-
+	
 	# When there are no response options the balloon itself is the clickable thing
 	get_viewport().set_input_as_handled()
 

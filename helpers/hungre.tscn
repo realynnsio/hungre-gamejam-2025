@@ -10,7 +10,7 @@ shader = ExtResource("2_b0nac")
 shader_parameter/alpha = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i35ds"]
-size = Vector2(34.25, 32.5)
+size = Vector2(36, 19)
 
 [sub_resource type="Animation" id="Animation_vy1qs"]
 length = 0.001
@@ -418,7 +418,7 @@ hframes = 11
 vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.125, -17.5)
+position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_i35ds")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

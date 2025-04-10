@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://0gfx8euiwdal"]
+
+[ext_resource type="Script" path="res://helpers/ui/pause.gd" id="1_aeyw1"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_anla1"]
+[ext_resource type="Texture2D" uid="uid://dpmlsciomtru7" path="res://assets/sprites/pause1.png" id="2_0sd4h"]
+[ext_resource type="Texture2D" uid="uid://wgvw087tnnm6" path="res://assets/sprites/pause2.png" id="3_gx75u"]
+[ext_resource type="FontFile" uid="uid://b8e14mochwvdi" path="res://assets/fonts/Pixbye Breaks.ttf" id="4_1buem"]
+[ext_resource type="FontFile" uid="uid://wfxyqn3j12v7" path="res://assets/fonts/CT Galbite-Regular.ttf" id="5_1tpf1"]
+[ext_resource type="StyleBox" uid="uid://7117umj6kpmy" path="res://helpers/ui/pause.tres" id="6_6hj74"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1iak0"]
+resource_local_to_scene = true
+shader = ExtResource("1_anla1")
+shader_parameter/color = Color(0.0941176, 0, 0.337255, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aeyw1")
+
+[node name="PauseButton" type="MarginContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 15
+
+[node name="PauseTextureButton" type="TextureButton" parent="PauseButton"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_1iak0")
+layout_direction = 2
+layout_mode = 2
+texture_normal = ExtResource("2_0sd4h")
+texture_pressed = ExtResource("2_0sd4h")
+texture_hover = ExtResource("3_gx75u")
+
+[node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
+layer = 102
+
+[node name="ColorRect" type="ColorRect" parent="PauseCanvasLayer"]
+modulate = Color(1, 1, 1, 0.392157)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Paused" type="Label" parent="PauseCanvasLayer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_outline_color = Color(0.0941176, 0, 0.337255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_1buem")
+theme_override_font_sizes/font_size = 120
+text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseCanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Skip" type="Button" parent="PauseCanvasLayer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.901961, 0.662745, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_1tpf1")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = ExtResource("6_6hj74")
+theme_override_styles/pressed = ExtResource("6_6hj74")
+theme_override_styles/normal = ExtResource("6_6hj74")
+text = "Skip to Night"
+
+[node name="Resume" type="Button" parent="PauseCanvasLayer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.901961, 0.662745, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_1tpf1")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = ExtResource("6_6hj74")
+theme_override_styles/pressed = ExtResource("6_6hj74")
+theme_override_styles/normal = ExtResource("6_6hj74")
+text = "Resume"
+
+[node name="Exit" type="Button" parent="PauseCanvasLayer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.901961, 0.662745, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_1tpf1")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = ExtResource("6_6hj74")
+theme_override_styles/pressed = ExtResource("6_6hj74")
+theme_override_styles/normal = ExtResource("6_6hj74")
+text = "Exit"
+
+[connection signal="pressed" from="PauseButton/PauseTextureButton" to="." method="_on_pause_texture_button_pressed"]
+[connection signal="pressed" from="PauseCanvasLayer/VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

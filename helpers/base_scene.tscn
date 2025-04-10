@@ -1,33 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://cll548bsjdk8y"]
+[gd_scene load_steps=8 format=3 uid="uid://cll548bsjdk8y"]
 
 [ext_resource type="Script" path="res://helpers/base_scene.gd" id="1_71eew"]
 [ext_resource type="AudioStream" uid="uid://chhpwm1c2qubd" path="res://assets/music/alma_bgm_loop2.wav" id="3_5a8v6"]
+[ext_resource type="PackedScene" uid="uid://duvrym5qurso7" path="res://helpers/ui/day_indicator.tscn" id="3_h3euq"]
+[ext_resource type="PackedScene" uid="uid://bfvvu1wdi2cnv" path="res://helpers/ui/escape_skip.tscn" id="4_552v8"]
 
 [sub_resource type="Animation" id="Animation_rawok"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/BG:modulate")
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MusicPlayer:volume_db")
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-15.0]
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_1g1tt"]
@@ -36,14 +38,26 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/BG:modulate")
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2osip"]
@@ -54,16 +68,6 @@ _data = {
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_71eew")
-
-[node name="Black" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true
@@ -77,7 +81,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BG" type="TextureRect" parent="Control"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -85,7 +88,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_2osip")
 }
@@ -95,3 +97,28 @@ stream = ExtResource("3_5a8v6")
 volume_db = -15.0
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 1
+
+[node name="Black" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Top" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="EscapeSkip" parent="Top" instance=ExtResource("4_552v8")]
+
+[node name="MarginContainer" type="MarginContainer" parent="Top"]
+offset_right = 286.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="DayIndicator" parent="Top/MarginContainer" instance=ExtResource("3_h3euq")]
+layout_mode = 2

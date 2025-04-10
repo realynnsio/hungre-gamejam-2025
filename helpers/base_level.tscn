@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://x0plcwukpckg"]
+
+[ext_resource type="Script" path="res://helpers/base_level.gd" id="1_1hin4"]
+[ext_resource type="PackedScene" uid="uid://d1gru6wp24ban" path="res://helpers/hungre.tscn" id="1_e87h0"]
+[ext_resource type="PackedScene" uid="uid://cu7ysoadiq2tr" path="res://helpers/enemy.tscn" id="2_o7r8s"]
+[ext_resource type="Texture2D" uid="uid://cteq22nhwjxc7" path="res://assets/sprites/mob_blueberry.png" id="3_e4j38"]
+[ext_resource type="Texture2D" uid="uid://fy7d8ak5r84f" path="res://assets/sprites/mob_strawberry.png" id="4_5cbhq"]
+[ext_resource type="PackedScene" uid="uid://cij5fuv3chmkb" path="res://helpers/heart_bar.tscn" id="5_4hjub"]
+[ext_resource type="PackedScene" uid="uid://tdbda3xblr82" path="res://helpers/key.tscn" id="6_heqbt"]
+[ext_resource type="PackedScene" uid="uid://bp27t4bg3twls" path="res://helpers/door.tscn" id="7_1uvsm"]
+
+[sub_resource type="Animation" id="Animation_dnlqx"]
+resource_name = "bg_show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_dbvwe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aicdb"]
+_data = {
+"RESET": SubResource("Animation_dbvwe"),
+"bg_show": SubResource("Animation_dnlqx")
+}
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_1hin4")
+
+[node name="Game" type="Node2D" parent="."]
+process_mode = 1
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Hungre" parent="Game" instance=ExtResource("1_e87h0")]
+position = Vector2(506, 106.667)
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Game/Hungre"]
+
+[node name="Enemy" parent="Game" instance=ExtResource("2_o7r8s")]
+position = Vector2(416, -4)
+
+[node name="Enemy2" parent="Game" instance=ExtResource("2_o7r8s")]
+position = Vector2(140, 90)
+spritesheet = ExtResource("3_e4j38")
+
+[node name="Enemy3" parent="Game" instance=ExtResource("2_o7r8s")]
+position = Vector2(389.667, 292.333)
+spritesheet = ExtResource("4_5cbhq")
+
+[node name="Key" parent="Game" instance=ExtResource("6_heqbt")]
+position = Vector2(264.667, 169.667)
+
+[node name="Door" parent="Game" instance=ExtResource("7_1uvsm")]
+position = Vector2(645.333, 0)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aicdb")
+}
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("5_4hjub")]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(16, -4)
+
+[node name="Black" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

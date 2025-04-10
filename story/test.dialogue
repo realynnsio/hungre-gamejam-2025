@@ -3,7 +3,6 @@ This is text.
 do bg_show_path("res://assets/bgs/wonderful.png")
 do music_start()
 Mitch: This is more text.
-do spawn_wheel("purple", "green", "yellow")
 Mitch: [[Hi|Hello|Howdy]], this is some dialogue. [#happy]
 Michelle: Here are some choices.
 - First one

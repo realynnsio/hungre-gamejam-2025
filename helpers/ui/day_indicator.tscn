@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://duvrym5qurso7"]
+
+[ext_resource type="FontFile" uid="uid://wfxyqn3j12v7" path="res://assets/fonts/CT Galbite-Regular.ttf" id="1_617ly"]
+[ext_resource type="FontFile" uid="uid://b8e14mochwvdi" path="res://assets/fonts/Pixbye Breaks.ttf" id="1_tm004"]
+[ext_resource type="Script" path="res://helpers/ui/day_indicator.gd" id="1_tps4o"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_xf3ui"]
+[ext_resource type="Texture2D" uid="uid://n87ihclchlxg" path="res://assets/sprites/sun.png" id="4_c0pgh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o50c2"]
+resource_local_to_scene = true
+shader = ExtResource("3_xf3ui")
+shader_parameter/color = Color(0.0941176, 0, 0.337255, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="DayIndicator" type="VBoxContainer"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_tps4o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Day" type="Label" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.894118, 0.670588, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0, 0.337255, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_tm004")
+theme_override_font_sizes/font_size = 38
+text = "Day 1"
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_o50c2")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("4_c0pgh")
+stretch_mode = 4
+
+[node name="Location" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.894118, 0.670588, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0, 0.337255, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_617ly")
+theme_override_font_sizes/font_size = 26
+text = "Computer Lab, University"
