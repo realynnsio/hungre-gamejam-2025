@@ -87,5 +87,6 @@ shape = SubResource("CapsuleShape2D_i43qu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_38fda")
+volume_db = -5.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

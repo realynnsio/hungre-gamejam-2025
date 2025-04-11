@@ -10,12 +10,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	pause_game()
 	State.has_key = false
 	State.eat_oreo.connect(eat_oreo)
 	State.change_room.connect(change_room)
 	animation_player.play("bg_show")
-	DialogueManager.show_dialogue_balloon(resource, dialogue_start)
 	await animation_player.animation_finished
+	DialogueManager.show_dialogue_balloon(resource, dialogue_start)
 	music_start()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,10 +45,9 @@ func eat_oreo():
 	DialogueManager.show_dialogue_balloon(resource, "eat_oreo")
 
 func change_room():
-	if !State.hungre_mad:
-		animation_player.play_backwards("bg_show")
-		await animation_player.animation_finished
-		music_stop()
+	animation_player.play_backwards("bg_show")
+	await animation_player.animation_finished
+	music_stop()
 	get_tree().change_scene_to_packed(next_scene)
 
 func bg_show():
