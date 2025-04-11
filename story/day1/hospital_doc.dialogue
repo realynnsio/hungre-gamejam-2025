@@ -103,7 +103,7 @@ Mitch: Well…
 	Mitch: Okay, I hope this works.
 	do State.doc_friendliness += 10
 	Dr. Sammy: I'm positive it’ll at least help with the lack of sleep, if nothing else.
-	Dr. Sammy: But if you feel any uncomfortable or alarming side effects at any point, remember to stop.
+	Dr. Sammy: But if you feel any uncomfortable or alarming side effects, remember to stop.
 	Dr. Sammy: Report back to me and we’ll try a different kind of treatment as soon as possible.
 	Mitch: Alright.
 
@@ -125,7 +125,7 @@ set State.location = "Lobby, Campus Clinic"
 do change_icon("res://assets/sprites/sun.png")
 do bg_show_path("res://assets/bgs/clinic_lobby.png")
 
-You make your way to pick up the medicine Dr. Sammy described before heading back to the dorms.
+You make your way to pick up the medicine Dr. Sammy prescribed before heading back to the dorms.
 As you walk, you swing the plastic bag containing the bottle of pills ever so slightly, feeling its weight.
 God, you really hope this will work…
 do change_room()

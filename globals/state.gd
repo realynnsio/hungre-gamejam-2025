@@ -15,6 +15,10 @@ signal mitch_hunger_change
 signal change_room
 signal eat_oreo
 
+# Main menu state
+var has_finished_game = false
+var menu_illust = preload("res://assets/cgs/main_menu.png")
+
 # Player stats
 var mitch_stomach = 40
 

@@ -109,7 +109,7 @@ do bg_show_path("res://assets/bgs/dorm_room.png")
 
 Finally, home sweet home.
 
-These four walls have been your home for the past years of going here, and it’s served you well.
+These four walls have been your home for the past few years of going here, and it’s served you well.
 
 You set your bag down at the foot of your bed and set your newly acquired medicine on the nightstand.
 
@@ -124,7 +124,7 @@ Mitch: … [#sad]
 It gets awfully lonely here.
 You used to have a lot of friends over, but as the semesters went on, your schedule and theirs began to differ and clash.
 A lot of them stopped rooming at the dorm as well, preferring to commute from home every day since they live quite near.
-Your house is a train ride away. You can’t afford that same luxury.
+Your house is a train ride away. You can’t afford that luxury.
 
 Mitch: … [#sad]
 
@@ -133,7 +133,7 @@ When you got sick last year, the sickness itself wasn’t even as bad as the fee
 if State.go_with_michelle == true:
 	Thankfully, things are a little different this time around.
 	do music_start()
-	You open your phone, quickly typing something up to send to someone.
+	You open your phone, quickly typing something to send to someone.
 
 	[b]mitchee[/b]\nGot the meds! I’ll be taking them and turning in early tonight (´｡• ᵕ •｡`)
 
@@ -145,9 +145,9 @@ if State.go_with_michelle == true:
 	if State.michelle_affection >= 30:
 		You smile to yourself.
 
-		do sfx_start()
 		You were just about to set your phone down on the nightstand before the notification sound rings again.
-
+		do sfx_start()
+		
 		[b]Michelle🦋[/b]\nG’nite ^o^.
 
 		You laugh a little. You’re glad that you somehow still have her as your friend.

@@ -8,7 +8,7 @@ do music_start()
 
 if State.go_with_michelle == true:
 	Michelle: Alright, is this where I should drop you off?
-	Mitch: Yeah, here is good. Thank you Michelle, you really didn’t have to.
+	Mitch: Yeah, here is good. Thank you Kak, you really didn’t have to.
 	Michelle: Don’t mention it.
 	Michelle: I’d offer to wait for you, but I still need to grade some student projects… [#sad]
 	Michelle: Update me later on how it goes, okay?

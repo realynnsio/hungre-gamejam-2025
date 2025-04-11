@@ -48,7 +48,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("3_xmugj")
 theme_override_font_sizes/font_size = 24
-text = "This game is still a demo, but I hope you've enjoyed it thus far :)"
+text = "This game is still a demo, but I hope you've enjoyed it so far :)"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]

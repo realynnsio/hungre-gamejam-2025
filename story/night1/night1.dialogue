@@ -52,9 +52,11 @@ do resume_game()
 => END
 
 ~ eat_oreo
+do pause_game()
 Hungre: [font_size=50][shake rate=20.0 level=5 connected=1]Yummyyyyy!![/shake][/font_size]
 Hungre: Oh, that was so good… truly a dessert made with love.
-Hungre: Thank you so, so much.
+Hungre: Thank you so much for your help, [color=#00927b]Mitch[/color].
+do resume_game()
 => END
 
 ~ exit_level
@@ -77,6 +79,6 @@ if State.has_cat == true:
 			Hungre: ...
 			set State.hungre_mad = true
 
-if State.has_cat == false or State.hungre_mad == true:
+if State.has_cat == false:
 	do change_room()
 => END

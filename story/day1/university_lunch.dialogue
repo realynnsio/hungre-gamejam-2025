@@ -188,6 +188,7 @@ You tell her about…
 	You remember–
 	
 	do music_stop()
+	do sfx_stop()
 	
 	Mitch: [font_size=30][shake rate=20.0 level=5 connected=1]Ah![/shake][/font_size] [#stress]
 	Your head experiences a sudden severe migraine.
@@ -204,12 +205,15 @@ You tell her about…
 	Mitch: Sorry… I had a really bad headache there for a bit.
 	
 	do music_start()
+	do sfx_start()
 	
 	Mitch: I’m okay. I’ll be okay.
-	Mitch: I went through something like this last year too, though it wasn’t quite this bad. I consulted with Dr. Sammy at the campus clinic that time and I can consult with him again once I’m free.
+	Mitch: I went through something like this last year too, though it wasn’t quite this bad.
+	Mitch: I consulted with Dr. Sammy at the campus clinic that time and I can consult with him again once I’m free.
+	Mitch: I'll probably do it at the end of the week... or maybe next week, since I still have a lot of missed classes to catch up with.
+	Mitch: ... but after that I have a big group project to do, so maybe...
 
-	Michelle doesn’t look convinced.
-	She gets up and grabs your plate and hers, walking to the stalls to return them before coming back to the table.
+	Michelle suddenly gets up and grabs your plate and hers, walking to the stalls to return them before coming back to the table.
 
 	Michelle: Come on, let’s go. [#determined]
 	Mitch: Huh…?

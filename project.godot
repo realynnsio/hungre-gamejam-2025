@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Hungre GameJam 2025"
-run/main_scene="res://scenes/day1/university_intro.tscn"
+run/main_scene="res://helpers/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

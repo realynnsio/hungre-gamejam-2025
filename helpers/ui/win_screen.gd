@@ -14,4 +14,6 @@ func _on_quit_pressed() -> void:
 
 func _on_play_again_pressed() -> void:
 	State.reset_state()
+	State.has_finished_game = true
+	State.menu_illust = load("res://assets/cgs/main_menu2.png")
 	get_tree().change_scene_to_packed(next_scene)
