@@ -13,14 +13,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Hungre":
+func _on_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
+	if area.name == "HurtBox" and parent is Player:
 		if State.has_key:
 			animation.play("open")
 			await animation.animation_finished
 			State.change_room.emit()
-			#animation.play("transition")
-			#await animation.animation_finished
-			#get_tree().change_scene_to_packed(next_scene)
 		else:
 			DialogueManager.show_dialogue_balloon(resource, dialogue_start)

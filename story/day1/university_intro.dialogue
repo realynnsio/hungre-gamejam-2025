@@ -1,4 +1,5 @@
 ~ intro
+do wait(1.0)
 ……..
 ………………..
 ???: …H…?.. Mi.. w… up….?
@@ -27,7 +28,7 @@ Mitch: Eh… Kak Michelle?! [#shock]
 
 # TODO change to computer lab bg. CHANGE MUSIC
 set State.day = "Day 1"
-set State.location = "Computer Lab, Univeristy"
+set State.location = "Computer Lab, University"
 do change_icon("res://assets/sprites/sun.png")
 do bg_show_path("res://assets/bgs/computer_lab.png")
 do music_start()

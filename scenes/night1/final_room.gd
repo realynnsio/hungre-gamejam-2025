@@ -79,6 +79,7 @@ func sfx_start_path(sfx_path):
 func sfx_stop():
 	sfx_player.stop()
 
-func _on_door_area_body_entered(body: Node2D) -> void:
-	if body.name == "Hungre":
+func _on_door_area_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()
+	if area.name == "HurtBox" and parent is Player:
 		DialogueManager.show_dialogue_balloon(resource, "exit_level")

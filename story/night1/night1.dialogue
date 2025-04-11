@@ -38,7 +38,9 @@ do resume_game()
 
 ~ no_key
 if State.has_key == false:
+	do pause_game()
 	You still haven’t acquired the key to unlock this door.
+	do resume_game()
 => END
 
 ~ find_dessert
@@ -61,6 +63,7 @@ do resume_game()
 
 ~ exit_level
 if State.has_cat == true:
+	do pause_game()
 	match State.skip_cat
 		when 0
 			Hungre: Eh, what are you doing?
@@ -78,6 +81,7 @@ if State.has_cat == true:
 		else
 			Hungre: ...
 			set State.hungre_mad = true
+	do resume_game()
 
 if State.has_cat == false:
 	do change_room()

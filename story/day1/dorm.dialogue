@@ -135,12 +135,12 @@ if State.go_with_michelle == true:
 	do music_start()
 	You open your phone, quickly typing something to send to someone.
 
-	[b]mitchee[/b]\nGot the meds! I’ll be taking them and turning in early tonight (´｡• ᵕ •｡`)
+	[b]mitchee[/b]\nGot the meds! I’ll be taking them and turning in early tonight (- v -)
 
 	do sfx_start_path("res://assets/sounds/chat_message.wav")
 	You get a reply a few seconds later.
 
-	[b]Michelle🦋[/b]\nGlad to hear! Sleep well, hope they’ll help uu.
+	[b]Michelle W.[/b]\nGlad to hear! Sleep well, hope they’ll help uu.
 
 	if State.michelle_affection >= 30:
 		You smile to yourself.
@@ -148,7 +148,7 @@ if State.go_with_michelle == true:
 		You were just about to set your phone down on the nightstand before the notification sound rings again.
 		do sfx_start()
 		
-		[b]Michelle🦋[/b]\nG’nite ^o^.
+		[b]Michelle W.[/b]\nG’nite ^o^.
 
 		You laugh a little. You’re glad that you somehow still have her as your friend.
 	else:

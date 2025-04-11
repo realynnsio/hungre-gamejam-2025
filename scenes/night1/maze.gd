@@ -19,6 +19,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func pause_game():
+	hungre.set_physics_process(false)
+	hungre.set_process(false)
+
+func resume_game():
+	hungre.set_physics_process(true)
+	hungre.set_process(true)
+
 func change_room():
 	animation_player.play_backwards("bg_show")
 	await animation_player.animation_finished
