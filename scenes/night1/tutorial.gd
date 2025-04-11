@@ -22,6 +22,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func wait(timer):
+	get_tree().create_timer(timer).timeout
+
 func change_room():
 	animation_player.play_backwards("bg_show")
 	await animation_player.animation_finished

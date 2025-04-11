@@ -1,0 +1,132 @@
+~ doc_office
+set State.day = "Day 1"
+set State.location = "Hallway, Campus Clinic"
+do change_icon("res://assets/sprites/sun.png")
+do sfx_start()
+do wait(5.0)
+
+Well… here you are again. Same office as last year.
+You were just about to knock on the door before it opened with a start.
+
+Physician Assistant: Mitch, right?
+Mitch: Ah, yes! That’s me.
+Physician Assistant: You’re just on time. Come in, Dr. Sammy has been expecting you.
+
+She opens the door wider for you to step in. You thank her and make your way inside.
+
+set State.day = "Day 1"
+set State.location = "Dr. Sammy’s Office, Campus Clinic"
+do change_icon("res://assets/sprites/sun.png")
+do bg_show_path("res://assets/bgs/clinic_office.png")
+do music_start()
+
+Behind the desk sits the older man you’ve come to know as Dr. Sammy.
+He seems to be absorbed in something on his computer screen. He hasn’t noticed you’ve walked in.
+You see that he still has those cute pins he always wears, with one section of hair tied up into a silly ponytail.
+You asked about it once. He said they were a byproduct of his daughter’s love of dressing him up.
+
+Dr. Sammy: Oh, Mitch! Good to see you. How have you been doing?
+
+- Alright.
+	Mitch: I’ve been alright. Peachy as always.
+	Dr. Sammy: Oh, did you come here just to visit us then? [#smile]
+	do State.doc_friendliness += 10
+
+	Dr. Sammy seems amused. You’re not sure whether he’s matching your sarcasm or actually being genuine with his statement.
+
+	Mitch: Sorry, that wasn’t truthful of me. I actually wanted to see you because the issues from last year have started appearing again.
+
+- I’ve had better days.
+	Mitch: I've had better days.
+
+	You try to show your exhaustion through your expression alone. He seems to catch it.
+	
+	Dr. Sammy: Ah… same issues as before, is it?
+	Mitch: Yeah, intense stomachaches and nightmares, just like last year.
+	
+- Terrible.
+	Mitch: Terrible.
+	Mitch: Awful.
+	Mitch: Absolutely horrendous.
+
+	Dr. Sammy laughs at your monotonous delivery. He seems to think you’re joking.
+	do State.doc_friendliness += 20
+	You’re very serious.
+	
+	Mitch: Last year’s issues have been flaring back up again and they’re starting to impact my studies.
+	if State.go_with_michelle == true:
+		Mitch: A friend of mine even gave me a ride here because she was so concerned about my condition…
+	
+
+Dr. Sammy: Ah… I’m sorry to hear that the issues have come back. [#concern]
+Dr. Sammy: Fortunately, I have something that I truly think might help you.
+
+Dr. Sammy ducks down to open a drawer behind his desk. After rummaging for a while, he pops back up and sets something down on the table.
+Looks like… documents?
+
+Dr. Sammy: Have you gotten my email? I’ve explained a bit about this there.
+
+You’re embarrassed to admit you only skimmed the email he sent.
+You just nod in response.
+
+Dr. Sammy: Good! I’ll summarize it for you again just to make it clear.
+Dr. Sammy: Basically, I did some research on cases similar to yours and found some notable research on it from a few years ago.
+Dr. Sammy: It’s a bit dated by now, but apparently the treatment they used has now been refined to create the medicine you see here.
+
+He holds up a bottle of pills and shakes it lightly.
+
+Dr. Sammy: In reality, it’s just a slightly stronger medicine to treat insomnia, but there’s a commonly reported side effect that patients feel full after sleeping when they’re on this medicine.
+Dr. Sammy: This bothered a few patients since they didn’t want the reduced appetite, but I think this would actually be useful for your case.
+
+He smiles kindly at you. It looks like he’s really hoping that this will help.
+
+Dr. Sammy: I can write you a prescription. The recommended dose is two pills a day, but I think we should try one pill a day first to make sure it’s compatible with you.
+Dr. Sammy: So, what do you think?
+
+Mitch: Well…
+
+- Is this safe?
+	Mitch: Is this safe?
+	Mitch: You said the research was dated, have there been any recent cases successfully treated with this?
+	Dr. Sammy: All recent use of this medicine has only been for insomnia, but patients do report that it works well.
+	Dr. Sammy: We won’t be sure whether it’ll take care of your hunger problem as well until we try it, but it should at least help you with the lack of sleep you’ve been getting.
+
+	He’s looking at you patiently, sensing your doubt.
+
+	Dr. Sammy: If you’re uncomfortable with this, we don’t have to proceed.
+	Mitch: Hm…
+
+	You guess it wouldn’t hurt to try.
+	Mitch: Okay, let’s do it. I believe you, doc.
+	
+- Okay, I hope this works.
+	Mitch: Okay, I hope this works.
+	do State.doc_friendliness += 10
+	Dr. Sammy: I'm positive it’ll at least help with the lack of sleep, if nothing else.
+	Dr. Sammy: But if you feel any uncomfortable or alarming side effects at any point, remember to stop.
+	Dr. Sammy: Report back to me and we’ll try a different kind of treatment as soon as possible.
+	Mitch: Alright.
+
+He smiles brightly.
+
+Dr. Sammy: Alright then, here’s your prescription.
+Dr. Sammy: This medicine is said to take effect quite quickly, so come here again tomorrow for another check up, okay?
+Mitch: Got it.
+
+Dr. Sammy starts swiftly cleaning up the documents he pulled out earlier and returns them to his drawer.
+
+Dr. Sammy: Take care on your way back.
+Mitch: Will do, thanks doc.
+
+do bg_hide()
+do wait(0.5)
+set State.day = "Day 1"
+set State.location = "Lobby, Campus Clinic"
+do change_icon("res://assets/sprites/sun.png")
+do bg_show_path("res://assets/bgs/clinic_lobby.png")
+
+You make your way to pick up the medicine Dr. Sammy described before heading back to the dorms.
+As you walk, you swing the plastic bag containing the bottle of pills ever so slightly, feeling its weight.
+God, you really hope this will work…
+do change_room()
+=> END

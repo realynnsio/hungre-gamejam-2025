@@ -1,0 +1,222 @@
+~ lunch
+set State.day = "Day 1"
+set State.location = "Cafeteria, University"
+do change_icon("res://assets/sprites/sun.png")
+do wait(0.5)
+do bg_show_path("res://assets/bgs/cafeteria.png")
+do music_start()
+do sfx_start()
+
+You and Michelle make your way to the cafeteria to eat. A lot of students are milling about, some getting their food and others discussing classes and homework.
+
+Michelle walks ahead and rushes to an empty table to claim it before someone else does.
+
+Michelle: Mitch, over here!
+
+You squeeze your way past a few groups to catch up to her.
+
+Michelle: What do you want to eat? I can go get our food while you stay here and guard our stuff.
+- Geprek Chicken
+	Michelle: Something spicy on an empty stomach? Are you sure about that? [#squint]
+	Mitch: I can handle it!
+	Michelle: Well, if you say so.
+- Fried Rice
+	Michelle: Oh, that’s what I was gonna get too! [#smile]
+	Michelle: Alright, be right back.
+- Instant Noodles
+	Michelle: Yeesh, that’s not good for you y’know. That’s not all you’ve been eating, right?
+	Mitch: Er… No…? [#embarassed]
+	Michelle: … [#squint]
+	Michelle: You should really take better care of yourself, kid.
+
+Michelle stands up and makes her way to the stalls, disappearing amongst the crowd soon after.
+
+Mitch: Hmm…
+
+This isn’t the first time you’ve gotten lunch with Michelle.
+In fact, you’ve probably gotten lunch with her at least once every week for the past semester or so.
+She’s two years older than you, but only one year above in classes.
+You first met her when she was assigned as your teacher’s assistant for a class in the 2nd semester.
+Boy, she really saved your ass back then.
+You were pretty bad at the course, but Michelle took quick notice of this and reached out to you herself.
+She asked if you needed help and immediately offered to tutor you and a few other struggling students.
+She always said she did it to add more hours to her work log, but you don’t quite believe her.
+Who the hell puts in that much effort just for minimum wage pay?
+After those tutoring sessions, you did well enough in the course that you didn’t have to retake it again.
+God, you really owe her.
+Now, you share a few classes with her and she’s your TA in a few of them too.
+You think she might consider you a friend. You’re not entirely sure, though.
+
+Michelle: Earth to Mitch? Hello? Where’d you go there, buddy?
+Mitch: Uh… huh?
+
+You snap out of your thoughts to find Michelle standing in front of you holding two plates of food.
+She sets both down on the table and takes a seat across from you.
+
+Michelle: Mind telling me what you were daydreaming about while I was gone?
+Mitch: Um…
+
+- Nothing.
+	Mitch: It’s nothing, don’t worry about it.
+	Michelle: Hm, private information huh? Okay, okay, I won’t pry.
+- You.
+	Mitch: You.
+	Michelle: …? [#flustered]
+	Mitch: Ah– I’m joking! I’m joking! [#embarassed]
+	Michelle: Oh. Hahah, good one buddy! [#flustered]
+	do State.michelle_affection += 20
+
+Michelle: Well, if we wait any longer the food might get cold. Let’s dig in!  [#smile]
+
+do bg_hide()
+The two of you eat your food together, chatting a small bit about classes in between bites.
+The portions here are massive, but you finish yours pretty quickly and Michelle catches up eventually.
+do State.mitch_stomach += 10
+do bg_show()
+
+Michelle: Ah, I almost couldn’t finish it… I keep forgetting how much food they serve here.
+
+Michelle puts away her plates to the side. She looks down at the table for a bit before looking back at you.
+
+Michelle: So, dozing off in class…
+Michelle: This isn’t the first time this has happened, Mitch.
+Michelle: Is there something wrong? You seem really tired lately. [#ask]
+
+She’s staring at you, expecting an answer.
+
+- Only once in a while!
+	Mitch: Yes, but only once in a while!
+	Mitch: Just one of those restless nights, y’know?
+	Mitch: I know I’ve slept through a few classes but I’ll do better, I promise.
+
+	That doesn’t seem like the answer she wanted.
+
+	Michelle: I’m not here to scold you or ask you to do better, Mitch. I’m just worried about you. [#sad]
+	Michelle: I can tell that this isn't just just some "restless night” but if that’s what you say, I won’t pry any further. [#sad]
+
+- Honestly, yes…
+	=> honest_tired
+
+- Stay silent.
+	Mitch: ….. [#down]
+	Michelle: Not something you want to talk about?
+	Mitch: ….. [#down]
+	Michelle: Okay, you don’t have to tell me about it if you don’t feel like it. [#sad]
+	do State.michelle_affection -= 10
+
+Michelle: Just remember that I’m here for you if you ever need anything, okay?
+
+You nod silently.
+Michelle smiles hesitantly before getting up and grabbing the plates on the table to return them. She comes back a few moments later.
+
+Michelle: Alright, I should probably get back to grading those student projects now. [#smile]
+Michelle: See you tomorrow?
+Mitch: Yeah, thank you for today, Kak. See you tomorrow. [#smile]
+
+You watch as Michelle walks towards the exit of the cafeteria, waving at her as she goes.
+
+do State.mitch_stomach -= 10
+Your stomach growls loudly.
+
+Mitch: Again…? [#sad]
+You’ve had this problem for a while now. You can’t seem to be full no matter how much you eat.
+It’s the reason you’ve been unable to sleep properly these past few weeks, your stomachaches get so bad they keep you up at night.
+You’ve consulted about this last year, but it’s gotten much worse lately.
+
+Mitch: I should probably go see Dr. Sammy again…
+
+Dr. Sammy is the doctor you went to when you encountered this problem before. He works at the campus clinic.
+
+Though his prescribed medicine didn’t do much last year, he emailed you a few days ago about some new medication that might prove more effective.
+
+do State.mitch_stomach -= 10
+Your stomach growls loudly.
+
+You should probably follow up with him on that.
+You grab your bag and set off towards the campus clinic by foot.
+do change_room()
+=> END
+
+~ honest_tired
+
+Mitch: Honestly, yes… it’s been like this for a while. [#down]
+Mitch: I haven’t been able to get a good night’s sleep in weeks. [#down]
+Michelle: Oh…? Is it alright if I asked why?
+
+You hesitate, you’ve been kept awake due to a number of reasons.
+
+You tell her about…
+
+- The stomachaches.
+	Mitch: I’ve been getting really bad stomach aches every night.
+	Mitch: I used to snack on things to make it hurt less but it hasn’t been working. [#down]
+	Mitch: This happened last year too, but it never lasted for more than one night at a time. [#down]
+	Mitch: I don’t know why it’s gotten so bad lately. [#down]
+	
+	Michelle looks at you with concern.
+	do State.michelle_affection += 20
+	
+	Michelle: Have you seen a doctor about this? [#concern]
+	Mitch: I have, I consulted with Dr. Sammy last year but I haven’t really gotten the chance to do it again this semester.
+	Mitch: He emailed me about some new medication I could try, but with classes, homework, and all the materials I’ve missed from sleeping during the day…
+	
+	Michelle suddenly gets up and grabs your plate and hers. She rushes to return them before coming back to the table.
+
+	Michelle: Come on, let’s go. [#determined]
+	Mitch: Huh…?
+	Michelle: We’re getting you to the campus clinic, my car’s parked behind the cafeteria. [#determined]
+	Mitch: Wait, no– it’s alright! I can go there by myself later, I wouldn’t want to trouble you.
+	Michelle: Hey, it’s no trouble at all.
+	Michelle: If I let you take care of this yourself, you’re just gonna postpone this to work on homework instead, right?
+	Mitch: Well, that’s… [#embarassed]
+	Michelle: Come on, hurry up or you’re sitting in the trunk.
+	set State.go_with_michelle = true
+	do change_room()
+	=> END
+	
+- The nightmares.
+	Mitch: I’ve been getting nightmares every night.
+	Mitch: They keep waking me up whenever I try to sleep and nothing I've tried has gotten rid of them. [#down]
+	Mitch: I’ve tried to sleep earlier, tiring myself out before sleeping, meditation, melatonin… nothing. [#down]
+	do State.michelle_affection += 20
+	Michelle: That sounds terrible… [#concern]
+	Michelle: Do you remember what happens in these nightmares? [#concern]
+	
+	Mitch: It’s–
+	
+	You try to remember the nightmare you had last night.
+	You remember–
+	
+	do music_stop()
+	
+	Mitch: [font_size=30][shake rate=20.0 level=5 connected=1]Ah![/shake][/font_size] [#stress]
+	Your head experiences a sudden severe migraine.
+	You start feeling nauseous.
+	do State.mitch_stomach -= 20
+	
+	Your stomach growls loudly.
+	Michelle: Mitch? Are you okay? [#concern]
+		
+	Focusing on Michelle’s voice helps you take your mind off of the pain for a bit.
+	You take deep breaths and try to steady yourself.
+
+	Michelle: Mitch? [#concern]
+	Mitch: Sorry… I had a really bad headache there for a bit.
+	
+	do music_start()
+	
+	Mitch: I’m okay. I’ll be okay.
+	Mitch: I went through something like this last year too, though it wasn’t quite this bad. I consulted with Dr. Sammy at the campus clinic that time and I can consult with him again once I’m free.
+
+	Michelle doesn’t look convinced.
+	She gets up and grabs your plate and hers, walking to the stalls to return them before coming back to the table.
+
+	Michelle: Come on, let’s go. [#determined]
+	Mitch: Huh…?
+	Michelle: We’re getting you to the campus clinic, my car’s parked behind the cafeteria. [#determined]
+	Mitch: Wait, no– it’s alright! I can go there by myself later, I wouldn’t want to trouble you.
+	Michelle: Hey, it’s no trouble at all.
+	Michelle: Come on, the sooner we go the sooner you can start getting better. [#smile]
+	set State.go_with_michelle = true
+	do change_room()
+	=> END

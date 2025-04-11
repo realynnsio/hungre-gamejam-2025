@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://p1m8us1l3peq"
+path="res://.godot/imported/university_lunch.dialogue-329780a7527102cce6a2adcd3ac1eb73.tres"
+
+[deps]
+
+source_file="res://story/day1/university_lunch.dialogue"
+dest_files=["res://.godot/imported/university_lunch.dialogue-329780a7527102cce6a2adcd3ac1eb73.tres"]
+
+[params]
+
+defaults=true

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hungre GameJam 2025"
-run/main_scene="res://scenes/day1/intro.tscn"
+run/main_scene="res://scenes/day1/university_intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -70,4 +70,4 @@ attack={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://story/test.dialogue", "res://story/day1/intro.dialogue", "res://story/night1/night1.dialogue")
+locale/translations_pot_files=PackedStringArray("res://story/test.dialogue", "res://story/day1/intro.dialogue", "res://story/night1/night1.dialogue", "res://story/day1/university_intro.dialogue", "res://story/day1/university_lunch.dialogue", "res://story/day1/hospital_lobby.dialogue", "res://story/day1/hospital_doc.dialogue", "res://story/day1/dorm.dialogue")

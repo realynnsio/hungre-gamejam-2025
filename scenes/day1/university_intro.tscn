@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgb76af4ixc74"]
+
+[ext_resource type="Script" path="res://scenes/day1/vn_script.gd" id="1_lyjjy"]
+[ext_resource type="Resource" uid="uid://4nvof74teusm" path="res://story/day1/university_intro.dialogue" id="2_hdtpq"]
+[ext_resource type="AudioStream" uid="uid://bsgggsw2jcs1o" path="res://assets/music/lofi_piano.wav" id="3_cpx35"]
+[ext_resource type="PackedScene" uid="uid://bfvvu1wdi2cnv" path="res://helpers/ui/escape_skip.tscn" id="3_d3rwu"]
+[ext_resource type="PackedScene" uid="uid://cji4idl8cw75e" path="res://scenes/day1/university_lunch.tscn" id="3_xo216"]
+[ext_resource type="PackedScene" uid="uid://duvrym5qurso7" path="res://helpers/ui/day_indicator.tscn" id="4_6tt4h"]
+[ext_resource type="AudioStream" uid="uid://dlna0shkrif5h" path="res://assets/sounds/female_groan.wav" id="4_fhtxv"]
+
+[sub_resource type="Animation" id="Animation_rawok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1g1tt"]
+resource_name = "bg_show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2osip"]
+_data = {
+"RESET": SubResource("Animation_rawok"),
+"bg_show": SubResource("Animation_1g1tt")
+}
+
+[node name="UniversityIntro" type="Node2D"]
+script = ExtResource("1_lyjjy")
+dialogue_start = "intro"
+resource = ExtResource("2_hdtpq")
+next_scene = ExtResource("3_xo216")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2osip")
+}
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cpx35")
+volume_db = -15.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fhtxv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 1
+
+[node name="Black" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Top" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="EscapeSkip" parent="Top" instance=ExtResource("3_d3rwu")]
+
+[node name="MarginContainer" type="MarginContainer" parent="Top"]
+offset_right = 286.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="DayIndicator" parent="Top/MarginContainer" instance=ExtResource("4_6tt4h")]
+layout_mode = 2

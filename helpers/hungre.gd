@@ -58,6 +58,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if area.name == "HitBox" and parent is EnemyBase:
 		parent.take_damage(10, self.position)
+	elif area.name == "HitBox" and parent is Dessert:
+		parent.eaten()
 
 # Updated take_damage function with knockback.
 func take_damage(amount: int, source_position: Vector2) -> void:

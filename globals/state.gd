@@ -4,29 +4,19 @@ extends Node
 var tutorial_scene: PackedScene = preload("res://scenes/night1/tutorial.tscn")
 var lose_screen_scene: PackedScene = preload("res://helpers/ui/lose_screen.tscn")
 
-# Wheel spin variables
-var speed = 0.8
-var choice = ""
-
 # UI Variables
-var day = "Day ???"
+var day = "Day ?"
 var location = "?????"
-var icon = preload("res://assets/sprites/sun.png")
+var icon = preload("res://assets/sprites/moon.png")
 
 # Signals
 signal hungre_hurt
 signal mitch_hunger_change
 signal change_room
+signal eat_oreo
 
 # Player stats
 var mitch_stomach = 40
-
-# Level
-var hungre_health = 60
-var has_key = false
-var skip_cat = 0
-var hungre_mad = false
-var finished_intro = false
 
 # Relationship stats
 var michelle_affection = 0
@@ -38,7 +28,14 @@ var has_doc = true
 var has_cat = true
 
 # Route bools
-var go_with_michelle = false
+var go_with_michelle = true # TODO CHANGE IT BACK
+
+# Level
+var hungre_health = 60
+var has_key = false
+var skip_cat = 0
+var hungre_mad = false
+var finished_intro = false
 
 func hungre_take_damage(value):
 	hungre_health -= value
@@ -53,6 +50,24 @@ func hungre_try_again():
 	has_key = false
 	skip_cat = 0
 	hungre_mad = false
+
+func reset_state():
+	hungre_try_again()
+	finished_intro = false
+
+	day = "Day ?"
+	location = "?????"
+	icon = preload("res://assets/sprites/moon.png")
+
+	mitch_stomach = 40
+	michelle_affection = 0
+	doc_friendliness = 0
+	cat_friendliness = 0
+
+	has_michelle = true
+	has_doc = true
+	has_cat = true
+	go_with_michelle = false
 
 func change_scene_to_node(node):
 	var tree = get_tree()

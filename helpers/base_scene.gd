@@ -2,27 +2,28 @@ extends Node2D
 
 @export var dialogue_start: String = "start"
 @onready var animation_player = $AnimationPlayer
-@export var resource_path: String = "res://story/test.dialogue"
+@export var resource: DialogueResource = preload("res://story/test.dialogue")
 @onready var background = $Control/BG
 @onready var music_player = $MusicPlayer
-@export var next_scene_path = ""
 @onready var sfx_player = $SFXPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var resource: DialogueResource = load(resource_path)
-	DialogueManager.connect("dialogue_ended", _on_dialogue_ended)
 	DialogueManager.show_dialogue_balloon(resource, dialogue_start)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-func _on_dialogue_ended(_args=[]) :
-	if ResourceLoader.exists(next_scene_path):
-		get_tree().change_scene_to_file(next_scene_path)
-	else:
-		queue_free()
+func change_icon(path):
+	State.icon = load(path)
+
+func change_room():
+	animation_player.play_backwards("bg_show")
+	await animation_player.animation_finished
+	music_stop()
+	await get_tree().process_frame
+	get_tree().change_scene_to_packed(State.tutorial_scene)
 
 # BG Methods
 func bg_change(bg_path):

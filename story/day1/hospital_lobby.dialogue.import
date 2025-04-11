@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bpra75pjsfhfj"
+path="res://.godot/imported/hospital_lobby.dialogue-44d40f0079816edc2532750db6b5decb.tres"
+
+[deps]
+
+source_file="res://story/day1/hospital_lobby.dialogue"
+dest_files=["res://.godot/imported/hospital_lobby.dialogue-44d40f0079816edc2532750db6b5decb.tres"]
+
+[params]
+
+defaults=true

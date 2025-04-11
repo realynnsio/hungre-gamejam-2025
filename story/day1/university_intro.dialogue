@@ -1,0 +1,82 @@
+~ intro
+……..
+………………..
+???: …H…?.. Mi.. w… up….?
+……..?
+???: It’s….. ng… la..
+………….?
+
+You can hear someone talking to you but you can’t make out their voice. You’re not sure what they’re saying either.
+
+???: H… co.. n……
+
+As the voice continues, you start to smell something familiar…
+It smells like food.
+Good food.
+You’re so, so hungry.
+
+You…
+- Bite it
+- Bite it
+- Bite it
+
+do sfx_start()
+???: [font_size=50][shake rate=20.0 level=5 connected=1]Ah!![/shake][/font_size]
+???: [font_size=30][shake rate=20.0 level=5 connected=1]What the hell did you do that for?![/shake][/font_size]
+Mitch: Eh… Kak Michelle?! [#shock]
+
+# TODO change to computer lab bg. CHANGE MUSIC
+set State.day = "Day 1"
+set State.location = "Computer Lab, Univeristy"
+do change_icon("res://assets/sprites/sun.png")
+do bg_show_path("res://assets/bgs/computer_lab.png")
+do music_start()
+Michelle: Yeah, it’s me. Jeez kid, that hurt…
+Mitch: I’m so sorry! I was half-awake and I thought…
+
+Your stomach growls loudly.
+
+Mitch: ……… [#embarassed]
+Michelle: Well, that explains things.
+Mitch: ……… [#embarassed]
+Michelle: Hey, no need to get shy. You’re pretty late for lunch so it makes sense.
+Mitch: It’s lunch time already?
+Michelle: Yeah, almost an hour past lunch time, actually. You slept through the entire session today and more…
+Michelle: The other students and teacher assistants have already gotten lunch and gone to their next class.
+Mitch: Ah?! My next class–! [#shock]
+Michelle: Woah, calm down. Your next class is with Professor Idyllin, right?
+Mitch: Yeah, it is. What about it?
+Michelle: My friend’s taking that class too and she said the professor’s sick today. There’s no class but there’s a task due tomorrow as replacement.
+Michelle: That’s why I didn’t immediately wake you up once today’s assistance session ended… you looked like you needed the rest, too.
+Mitch: Oh…
+
+- You’re always looking out for me…
+	Mitch: You’re always looking out for me… I really owe you one, kak.
+	Mitch: I owe you a lot, actually.
+	Michelle: Hey, it’s no big deal! Always glad to help you out, Mitch. [#smile]
+	do State.michelle_affection += 20
+	She seems happy with what you’ve said.
+- How about your own classes, kak?
+	Mitch: How about your own classes, kak? You didn’t skip any, right?
+	Michelle: Of course not! All I have for today was this assistance session and some student projects I need to help grade, but those can wait ‘till later.
+	Michelle: Rest assured I’m not slacking off just to babysit you, Mitch. [#flat]
+	do State.michelle_affection -= 10
+	She’s not being particularly mean, but you feel as though you’ve said the wrong thing… 
+- Thank you, kak.
+	Mitch: Thank you, kak. I mean it.
+	Michelle: Aw, it’s no problem, Mitch. [#smile]
+	She smiles at you.
+	do State.michelle_affection += 10
+
+Michelle: Anyways, I’m getting kind of hungry too… I think I’m gonna go get lunch at the cafeteria.
+Mitch: Oh, okay!
+
+Michelle walks to the door of the lab but stops. She pauses for a minute before turning back to look at you.
+
+Michelle: …..
+Mitch: …….?
+Michelle: So, are you just gonna stand there or are you gonna join me?
+Mitch: Oh!!
+Mitch: Yes, of course! Let me get my things and I’ll be right with you!
+do change_room()
+=> END

@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ESCAPE:
-			get_tree().change_scene_to_file("res://scenes/night1/tutorial.tscn")
+			get_tree().change_scene_to_packed(State.tutorial_scene)

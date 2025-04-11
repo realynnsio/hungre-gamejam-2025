@@ -1,0 +1,46 @@
+~ clinic_arrival
+set State.day = "Day 1"
+set State.location = "Entrance, Campus Clinic"
+do change_icon("res://assets/sprites/sun.png")
+do wait(0.5)
+do bg_show_path("res://assets/bgs/clinic_entrance.png")
+do music_start()
+
+if State.go_with_michelle == true:
+	Michelle: Alright, is this where I should drop you off?
+	Mitch: Yeah, here is good. Thank you Michelle, you really didn’t have to.
+	Michelle: Don’t mention it.
+	Michelle: I’d offer to wait for you, but I still need to grade some student projects… [#sad]
+	Michelle: Update me later on how it goes, okay?
+	Mitch: Okay, I will. See you tomorrow then!
+	Michelle: See you tomorrow!
+
+	You stand there waving for a bit until you see Michelle’s car turn the other corner.
+	As you turn your body to finally enter the all-too-familiar building, you can’t help but sigh.
+	Here we go again…
+else:
+	You’ve successfully walked all the way from your building to the campus clinic.
+	You stand there for a bit to rest and catch your breath before heading inside.
+	As you move your legs to finally enter the all-too-familiar building, you can’t help but sigh.
+	Here we go again…
+
+do bg_hide()
+do wait(0.5)
+set State.day = "Day 1"
+set State.location = "Lobby, Campus Clinic"
+do change_icon("res://assets/sprites/sun.png")
+do bg_show_path("res://assets/bgs/clinic_lobby.png")
+
+Receptionist: Hello, what brings you in today?
+Mitch: Hello. I’m looking for...
+Receptionist: Oh, it’s you! You must be here to see Dr. Sammy, right?
+Mitch: Oh, uh. Yeah. Yes.
+Receptionist: He mentioned that you might be coming this week. Same trouble as before?
+Mitch: Yeah… still the stomachaches and bad sleep.
+Receptionist: Oh, you poor thing… Well, lucky for you he just finished up with his last patient.
+Receptionist: You can go in now. You know the way to his office, right?
+Mitch: I think so… down the hall to the left, was it?
+Receptionist: Yup. Hope you get better soon, sweetie!
+Mitch: Thank you, ma’am!
+do change_room()
+=> END

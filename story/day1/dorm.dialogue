@@ -1,0 +1,177 @@
+~ return
+set State.day = "Day 1"
+set State.location = "Front Door, Dormitory"
+do change_icon("res://assets/sprites/sun.png")
+do wait(0.5)
+do bg_show_path("res://assets/bgs/dorm_entrance.png")
+do music_start()
+
+After about 20 minutes walking, you finally reach the dorm.
+Despite years of doing this almost every day, you can’t say you’ve gotten any more used to it.
+It feels like this city has 2 suns, and one is already too much for you.
+
+Mitch: Hah.. hah… [#tired]
+
+You slowly wobble over to the door, trying your best to control your breathing as you do.
+
+???: Woah, the weather got you huh, miss?
+
+You look over your shoulder to see a friendly looking woman wearing a security outfit.
+She looks to be in her 40s and she's a fair bit shorter than you.
+
+Dorm Security Guard: You’re not looking too good there…
+Mitch: Thank you for your concern, ma’am. The weather’s a bit rough but I’ll be fine in no time.
+Dorm Security Guard: Well, if you say so, miss.
+Dorm Security Guard: If I may recommend, the pantry’s a pretty good place to cool down if you haven’t turned on the AC in your room yet.
+Dorm Security Guard: The water dispenser’s up and running again and the ice has been restocked.
+Dorm Security Guard: The fan has been on since this morning too so it should be proper breezy by now.
+Mitch: Oh, thank you for the recommendation ma’am. I’ll check it out!
+
+The security guard smiles and nods to you before heading back towards her post.
+
+You haven’t been to the pantry in a while, you guess it won’t hurt to give it a look…
+
+do bg_hide()
+
+After passing by your room to turn on the AC, you make your way towards the dormitory pantry.
+
+set State.day = "Day 1"
+set State.location = "Pantry, Dormitory"
+do change_icon("res://assets/sprites/sun.png")
+do bg_show_path("res://assets/bgs/dorm_pantry.png")
+
+Mitch: Woah… the security guard wasn’t kidding…
+
+As you enter the pantry, you feel the breeze of the ceiling fan hit you immediately, cooling you off.
+Not only that, but it seems that it’s gotten a pretty big upgrade since you’ve last been here.
+They changed the fridge here to a bigger one, the cookware looks newer, and they changed the gas stove to an electric one.
+
+Mitch: The tables are close to the sockets too…
+
+You could definitely work on your homework here as you wait for your room to cool down.
+There’s no one else around too, the perfect studying environment for you.
+
+Well, no one else but…
+
+do sfx_start()
+???: Meow!
+
+Mitch: Tuxy? Come here buddy! [#smile]
+
+You hear a bit of rustling as your familiar friend makes his way from behind the water dispenser to approach you.
+
+Tuxy: Meow!
+
+Tuxy is the dorm cat. Unofficially, that is.
+It’s common knowledge that the dorms here aren’t supposed to allow pets, but Tuxy is so beloved amongst dorm staff and residents that he’s become an exception to that rule.
+
+- Pet him
+	You pet your little buddy on his head, letting him purr to his heart’s content.
+	do State.cat_friendliness += 20
+
+	Mitch: Heheh, good boy.
+
+- Offer him food
+	You assume he might be hungry and open the cabinet reserved just for him to get his food out.
+	Mitch: You want this, buddy?
+	You pour a bit of the food into his bowl in the corner.
+
+	Tuxy: Mreow.
+	Tuxy: Meow!
+
+	Tuxy walks to the table instead, ignoring the bowl of food.
+	Well, at least you tried.
+
+With Tuxy in tow, you open your laptop and set it down on a table near one of the sockets.
+As you begin working on the task that Professor Idyllin assigned, you feel Tuxy claim his spot beside you and curl up to sleep.
+Tuxy’s been around since the first semester you’ve been here and he’s often kept you company just like this, though usually when you’re working in your room.
+You think he’s your most loyal friend.
+You don't know how to feel about that.
+
+do bg_hide()
+do wait(1.0)
+do bg_show()
+
+Mitch: Agh… finally done…
+
+You stretch your body and yawn.
+After 3 hours, you’re finally done with Professor Idyllin’s task.
+You get up to tidy your things from the table. Tuxy’s already wandered off on his own at this point.
+
+Mitch: Guess it’s time to hit the hay.
+
+do bg_hide()
+do wait(0.5)
+set State.day = "Night 1"
+set State.location = "Your Room, Dormitory"
+do change_icon("res://assets/sprites/moon.png")
+do bg_show_path("res://assets/bgs/dorm_room.png")
+
+Finally, home sweet home.
+
+These four walls have been your home for the past years of going here, and it’s served you well.
+
+You set your bag down at the foot of your bed and set your newly acquired medicine on the nightstand.
+
+Mitch: …
+
+do music_stop()
+
+You haven't mentioned this to anyone, but hunger and nightmares aren't the only things keeping you up at night.
+
+Mitch: … [#sad]
+
+It gets awfully lonely here.
+You used to have a lot of friends over, but as the semesters went on, your schedule and theirs began to differ and clash.
+A lot of them stopped rooming at the dorm as well, preferring to commute from home every day since they live quite near.
+Your house is a train ride away. You can’t afford that same luxury.
+
+Mitch: … [#sad]
+
+When you got sick last year, the sickness itself wasn’t even as bad as the feeling of isolation that came with it.
+
+if State.go_with_michelle == true:
+	Thankfully, things are a little different this time around.
+	do music_start()
+	You open your phone, quickly typing something up to send to someone.
+
+	[b]mitchee[/b]\nGot the meds! I’ll be taking them and turning in early tonight (´｡• ᵕ •｡`)
+
+	do sfx_start_path("res://assets/sounds/chat_message.wav")
+	You get a reply a few seconds later.
+
+	[b]Michelle🦋[/b]\nGlad to hear! Sleep well, hope they’ll help uu.
+
+	if State.michelle_affection >= 30:
+		You smile to yourself.
+
+		do sfx_start()
+		You were just about to set your phone down on the nightstand before the notification sound rings again.
+
+		[b]Michelle🦋[/b]\nG’nite ^o^.
+
+		You laugh a little. You’re glad that you somehow still have her as your friend.
+	else:
+		You smile as you set your phone down on the nightstand.
+
+You turn to the medicine and grab your water bottle from your bag.
+You hope that this will truly prevent last year’s situation from repeating again.
+
+do sfx_start_path("res://assets/sounds/swallowing_pill.wav")
+
+Mitch: Uh… [#sleepy]
+	
+do music_stop()
+
+The potency of the medicine takes you off-guard.
+You remember Dr. Sammy telling you that it’ll take effect quite quickly, but you didn’t think it’d be this quick.
+
+Mitch: Ah… huh…. H…. [#sleepy]
+
+You feel extremely sleepy.
+You sway and trip on the foot of the bed, crashing down onto the mattress.
+
+Mitch: ……… [#sleepy]
+
+do change_room()
+=> END

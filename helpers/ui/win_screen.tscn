@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://uqwr44ops2pa"]
+
+[ext_resource type="Script" path="res://helpers/ui/win_screen.gd" id="1_ykgnd"]
+[ext_resource type="FontFile" uid="uid://b8e14mochwvdi" path="res://assets/fonts/Pixbye Breaks.ttf" id="2_i15dm"]
+[ext_resource type="FontFile" uid="uid://wfxyqn3j12v7" path="res://assets/fonts/CT Galbite-Regular.ttf" id="3_xmugj"]
+[ext_resource type="StyleBox" uid="uid://7117umj6kpmy" path="res://helpers/ui/pause.tres" id="4_fccym"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_ykgnd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_i15dm")
+theme_override_font_sizes/font_size = 80
+text = "Thanks for playing!"
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_xmugj")
+theme_override_font_sizes/font_size = 24
+text = "This game is still a demo, but I hope you've enjoyed it thus far :)"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.901961, 0.662745, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xmugj")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("4_fccym")
+theme_override_styles/pressed = ExtResource("4_fccym")
+theme_override_styles/normal = ExtResource("4_fccym")
+text = "Back to Menu"
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.901961, 0.662745, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xmugj")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("4_fccym")
+theme_override_styles/pressed = ExtResource("4_fccym")
+theme_override_styles/normal = ExtResource("4_fccym")
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

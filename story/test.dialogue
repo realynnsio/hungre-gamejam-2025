@@ -10,8 +10,9 @@ Michelle: Here are some choices.
 - Second one
 	Mitch: You picked the second one.
 - Start again => start
-- End the conversation => END
+- End the conversation
+	do change_room()
+	=> END
 Melanie: For more information see the online documentation.
-do bg_hide()
-do DialogueManager.dialogue_ended.emit()
+do change_room()
 => END

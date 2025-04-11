@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://bwyrxritq72ki"]
+
+[ext_resource type="Texture2D" uid="uid://dxc0u5bg75k8j" path="res://assets/sprites/oreo_float.png" id="1_uc582"]
+[ext_resource type="Script" path="res://desserts/oreo_dessert.gd" id="2_tav1r"]
+[ext_resource type="AudioStream" uid="uid://dl4rpxjm66tie" path="res://assets/sounds/gore_kill.wav" id="3_38fda"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xleay"]
+atlas = ExtResource("1_uc582")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5r76"]
+atlas = ExtResource("1_uc582")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxkn6"]
+atlas = ExtResource("1_uc582")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2618"]
+atlas = ExtResource("1_uc582")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjg4b"]
+atlas = ExtResource("1_uc582")
+region = Rect2(256, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_breyd"]
+atlas = ExtResource("1_uc582")
+region = Rect2(320, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rnjn"]
+atlas = ExtResource("1_uc582")
+region = Rect2(384, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1w02"]
+atlas = ExtResource("1_uc582")
+region = Rect2(448, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_unmqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xleay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5r76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxkn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2618")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjg4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_breyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rnjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1w02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i43qu"]
+radius = 19.0
+height = 40.0
+
+[node name="OreoDessert" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_unmqu")
+autoplay = "default"
+frame_progress = 0.0553294
+script = ExtResource("2_tav1r")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_i43qu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_38fda")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

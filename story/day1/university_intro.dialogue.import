@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://4nvof74teusm"
+path="res://.godot/imported/university_intro.dialogue-fc026fbd966301afb317ffef5761285a.tres"
+
+[deps]
+
+source_file="res://story/day1/university_intro.dialogue"
+dest_files=["res://.godot/imported/university_intro.dialogue-fc026fbd966301afb317ffef5761285a.tres"]
+
+[params]
+
+defaults=true
