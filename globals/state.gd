@@ -14,6 +14,7 @@ signal hungre_hurt
 signal mitch_hunger_change
 signal change_room
 signal eat_oreo
+signal score_add
 
 # Main menu state
 var has_finished_game = false
