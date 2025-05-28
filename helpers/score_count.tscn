@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj6mnkqwdqv8y"]
+
+[ext_resource type="FontFile" uid="uid://b8e14mochwvdi" path="res://assets/fonts/Pixbye Breaks.ttf" id="1_jsxq3"]
+[ext_resource type="Script" path="res://helpers/score_count.gd" id="2_7ytla"]
+
+[node name="Score" type="Label"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 100)
+offset_left = 1.0
+offset_right = 201.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.894118, 0.670588, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0, 0.337255, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_jsxq3")
+theme_override_font_sizes/font_size = 28
+text = "SCORE
+0"
+horizontal_alignment = 2
+script = ExtResource("2_7ytla")

@@ -24,6 +24,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	velocity = -direction * 100
 	await animation_player.animation_finished  # Wait until "hurt" animation is done
 	if health <= 0:
+		State.score += 100
 		queue_free()
 	else:
 		animation_player.play("walk_right")  # Reset to chase animation
