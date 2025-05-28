@@ -306,19 +306,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Score" parent="CanvasLayer/Control" instance=ExtResource("8_4yiyi")]
-offset_left = 860.0
-offset_top = 16.0
-offset_right = 1060.0
-offset_bottom = 116.0
-scale = Vector2(2, 2)
-
 [node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("12_sb0uj")]
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 16.0
 scale = Vector2(4, 4)
 pivot_offset = Vector2(16, -4)
+
+[node name="Score" parent="CanvasLayer/Control" instance=ExtResource("8_4yiyi")]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 16.0
+offset_right = 1060.0
+offset_bottom = 116.0
+scale = Vector2(2, 2)
 
 [node name="Black" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
