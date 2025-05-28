@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://druxxhfxej3xj"]
+[gd_scene load_steps=18 format=4 uid="uid://druxxhfxej3xj"]
 
 [ext_resource type="Script" path="res://scenes/night1/final_room.gd" id="1_edmek"]
 [ext_resource type="Texture2D" uid="uid://cx0vki3haasbg" path="res://assets/sprites/tilemap.png" id="3_njnm1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://biynalogvhouj" path="res://assets/sprites/jaw_door.png" id="4_scfse"]
 [ext_resource type="PackedScene" uid="uid://bwyrxritq72ki" path="res://desserts/oreo_dessert.tscn" id="5_82g20"]
 [ext_resource type="PackedScene" uid="uid://d1gru6wp24ban" path="res://helpers/hungre.tscn" id="5_rov2s"]
+[ext_resource type="PackedScene" uid="uid://dj6mnkqwdqv8y" path="res://helpers/score_count.tscn" id="8_4yiyi"]
 [ext_resource type="AudioStream" uid="uid://bvubg3adm508n" path="res://assets/music/french_accordion.wav" id="11_6tr5o"]
 [ext_resource type="PackedScene" uid="uid://cij5fuv3chmkb" path="res://helpers/heart_bar.tscn" id="12_sb0uj"]
 
@@ -304,6 +305,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Score" parent="CanvasLayer/Control" instance=ExtResource("8_4yiyi")]
+offset_left = 860.0
+offset_top = 16.0
+offset_right = 1060.0
+offset_bottom = 116.0
+scale = Vector2(2, 2)
 
 [node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("12_sb0uj")]
 layout_mode = 0

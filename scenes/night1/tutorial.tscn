@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b5ocuo84mrgpm"]
+[gd_scene load_steps=18 format=4 uid="uid://b5ocuo84mrgpm"]
 
 [ext_resource type="Script" path="res://scenes/night1/tutorial.gd" id="1_hsddj"]
 [ext_resource type="PackedScene" uid="uid://d1gru6wp24ban" path="res://helpers/hungre.tscn" id="2_17ixt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bp27t4bg3twls" path="res://helpers/door.tscn" id="7_3btkr"]
 [ext_resource type="AudioStream" uid="uid://bvubg3adm508n" path="res://assets/music/french_accordion.wav" id="7_mriu5"]
 [ext_resource type="PackedScene" uid="uid://cij5fuv3chmkb" path="res://helpers/heart_bar.tscn" id="8_7pfq8"]
+[ext_resource type="PackedScene" uid="uid://dj6mnkqwdqv8y" path="res://helpers/score_count.tscn" id="11_monw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rjgf"]
 texture = ExtResource("2_33sbr")
@@ -273,11 +274,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("8_7pfq8")]
+texture_filter = 1
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 16.0
 scale = Vector2(4, 4)
 pivot_offset = Vector2(16, -4)
+
+[node name="Score" parent="CanvasLayer/Control" instance=ExtResource("11_monw0")]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 16.0
+offset_right = 1060.0
+offset_bottom = 116.0
+scale = Vector2(2, 2)
 
 [node name="Black" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

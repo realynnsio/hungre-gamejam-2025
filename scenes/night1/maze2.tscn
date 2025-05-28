@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://v2n43us86cvi"]
+[gd_scene load_steps=20 format=4 uid="uid://v2n43us86cvi"]
 
 [ext_resource type="Script" path="res://scenes/night1/maze.gd" id="1_otty6"]
 [ext_resource type="PackedScene" uid="uid://druxxhfxej3xj" path="res://scenes/night1/final_room.tscn" id="2_di84v"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cteq22nhwjxc7" path="res://assets/sprites/mob_blueberry.png" id="9_tnuka"]
 [ext_resource type="AudioStream" uid="uid://bvubg3adm508n" path="res://assets/music/french_accordion.wav" id="10_ehlh6"]
 [ext_resource type="PackedScene" uid="uid://cij5fuv3chmkb" path="res://helpers/heart_bar.tscn" id="11_blobi"]
+[ext_resource type="PackedScene" uid="uid://dj6mnkqwdqv8y" path="res://helpers/score_count.tscn" id="12_gnh73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g7qw"]
 texture = ExtResource("2_vw73r")
@@ -299,6 +300,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Score" parent="CanvasLayer/Control" instance=ExtResource("12_gnh73")]
+offset_left = 860.0
+offset_top = 16.0
+offset_right = 1060.0
+offset_bottom = 116.0
+scale = Vector2(2, 2)
 
 [node name="HeartBar" parent="CanvasLayer/Control" instance=ExtResource("11_blobi")]
 layout_mode = 0
