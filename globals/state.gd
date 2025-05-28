@@ -40,6 +40,7 @@ var has_key = false
 var skip_cat = 0
 var hungre_mad = false
 var finished_intro = false
+var score = 0
 
 func hungre_take_damage(value):
 	hungre_health -= value
